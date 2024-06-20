@@ -14,20 +14,15 @@ $articles = getArticles();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles | La Couture de CP</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <img src="logo.png" alt="logo du site">
-    </header>
-    <nav>
-        <ul>
-            <li><a href="creations.php">Creations</a></li>
-            <li><a href="articles.php">Article</a></li>
-            <li><a href="commandes.php">Passer commande</a></li>
-        </ul>
-    </nav>
+    <?php
+    require './components/navbar.php';
+    ?>
 
     <h1>Mes Articles</h1>
 

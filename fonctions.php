@@ -1,6 +1,9 @@
 <?php
 
 function getCreation(int $id_creation): Creation | null
+/*
+    Renvoie la création sous forme de sa classe en fonction de son id
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
 
@@ -37,6 +40,9 @@ function getCreation(int $id_creation): Creation | null
 }
 
 function getTags(int $id_creation): array
+/*
+    Renvoie la liste des tags d'une creation en fonction de son id
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
     
@@ -63,6 +69,9 @@ function getTags(int $id_creation): array
 }
 
 function getTissus(int $id_creation): array
+/*
+    Renvoie la liste des tissus d'une creation en fonction de son id
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
 
@@ -89,6 +98,9 @@ function getTissus(int $id_creation): array
 }
 
 function getPrix(Creation $creation): int
+/*
+    Renvoie le prix d'une creation
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
 
@@ -105,6 +117,9 @@ function getPrix(Creation $creation): int
 }
 
 function getCreations(): array
+/*
+    Renvoie la liste de toutes les creations
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
 
@@ -138,6 +153,9 @@ function getCreations(): array
 }
 
 function getAllTags(): array
+/*
+    Renvoie la liste de tous les tags
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
     
@@ -157,6 +175,9 @@ function getAllTags(): array
 }
 
 function getCategories():array
+/*
+    Renvoie la liste de toutes les catégories
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
     
@@ -176,6 +197,9 @@ function getCategories():array
 }
 
 function getCategorieFromId(int $id_categorie): Categorie | null
+/*
+    Renvoie la catégorie d'une creation en fonction de son id
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
     
@@ -196,6 +220,9 @@ function getCategorieFromId(int $id_categorie): Categorie | null
 }
 
 function getTagFromId(int $id_tag): Tag | null
+/*
+    Renvoie un tag en fonction de son id
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
     
@@ -216,6 +243,9 @@ function getTagFromId(int $id_tag): Tag | null
 }
 
 function getFiltres():array
+/*
+    Renvoie la liste de tous les filtres
+*/
 {
     $filtres=["categories"=>[],"tags"=>[]];
     foreach($_GET as $key=>$value)
@@ -233,6 +263,9 @@ function getFiltres():array
 }
 
 function getArticles():array
+/*
+    Renvoie la liste de tous les articles
+*/
 {
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
 
@@ -257,6 +290,39 @@ function getArticles():array
     $mysqli->close();
 
     return $articles;
+}
+
+function getCarousel():array
+{
+    $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
+
+    $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie, i.chemin
+    FROM creation c
+    JOIN categorie ca ON c.id_categorie=ca.id_categorie
+    JOIN image i ON i.id_image=c.id_image
+    ORDER BY c.id_creation DESC");
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    $creations=[];
+
+    for ($i=0;$i<8;$i++)
+    {
+        $creations[]=new Creation(
+            $res[$i]["id_creation"], 
+            $res[$i]["nom"], 
+            $res[$i]["description"], 
+            $res[$i]["taille"], 
+            $res[$i]["tps_creation"], 
+            $res[$i]["surface_tissu"],
+            new Categorie($res[$i]["id_categorie"], $res[$i]["nom_categorie"]), 
+            new SplFileInfo($res[$i]["chemin"]), 
+            getTags($res[$i]["id_creation"]));
+    }
+    $stmt->close();
+    $mysqli->close();
+
+    return $creations;
 }
 
 ?>
