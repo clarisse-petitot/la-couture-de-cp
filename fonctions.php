@@ -294,6 +294,9 @@ function getArticles():array
 
 function getCarousel():array
 {
+    /*
+        Renvoie la liste des 8 dernières créations
+    */
     $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
 
     $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie, i.chemin

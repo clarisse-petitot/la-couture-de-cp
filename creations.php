@@ -36,11 +36,14 @@ if (count($_GET) > 0) {
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://unpkg.com/alpinejs" defer=""></script>
 </head>
 
 <body>
     <?php
     require './components/navbar.php';
+    require './components/filters.php';
     ?>
 
     <h1>Mes Créations</h1>
@@ -72,36 +75,9 @@ if (count($_GET) > 0) {
         <input type="submit" value="Valider">
     </form>
 
-    <section>
-    
-        <?php
-        foreach ($creations as $creation) {
-            $prix = getPrix($creation);
-        ?>
-            <a href="creation.php?id_creation=<?= $creation->getIdCreation() ?>">
-                <img src="<?= $creation->getChemin() ?>" alt="image représentant : <?= $creation->getNom() ?>">
-                <h3><?= $creation->getNom() ?></h3>
-                <p><?= $creation->getDescription() ?></p>
-                <ul>
-                    <?php
-                    for ($i = 0; $i < count($creation->getTags()); $i++) {
-                    ?>
-                        <li><?= $creation->getTags()[$i]->getNom() ?></li>
-                    <?php
-                    }
-                    ?>
-                </ul>
-                <?php
-                if ($prix > 0) {
-                ?>
-                    <p><?= $prix ?>€ </p>
-                    <button>Acheter</button>
-            <?php
-                }
-            }
-            ?>
-            </a>
-    </section>
+    <?php
+    require './components/cards.php';
+    ?>
 
 </body>
 
