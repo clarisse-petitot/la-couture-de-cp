@@ -11,8 +11,9 @@ class Creation{
     private $categorie;
     private $chemin_img;
     private $tags;
+    private $tissus;
 
-    public function __construct(int $id_creation, string $nom, string $description, string $taille, int $tps_creation, string $surface_tissu, Categorie $categorie, SplFileInfo $chemin_img, array $tags) {
+    public function __construct(int $id_creation, string $nom, string $description, string $taille, int $tps_creation, string $surface_tissu, Categorie $categorie, SplFileInfo $chemin_img, array $tags, array $tissus) {
         $this->id_creation = $id_creation;
         $this->nom = $nom;
         $this->description = $description;
@@ -22,6 +23,8 @@ class Creation{
         $this->categorie = $categorie;
         $this->chemin_img = $chemin_img;
         $this->tags = $tags;
+        $this->tissus = $tissus;
+
     }
 
     public function getIdCreation():int{
@@ -50,6 +53,9 @@ class Creation{
     }
     public function getTags():array{
         return $this->tags;
+    }
+    public function getTissus():array{
+        return $this->tissus;
     }
 }
 

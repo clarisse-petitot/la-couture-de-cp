@@ -31,7 +31,8 @@ function getCreation(int $id_creation): Creation | null
         $res["surface_tissu"], 
         new Categorie($res["id_categorie"], $res["nom_categorie"]), 
         new SplFileInfo($res["chemin"]), 
-        getTags($res["id_creation"]));
+        getTags($res["id_creation"]),
+        getTissus($res["id_creation"]));
 
     $stmt->close();
     $mysqli->close();
@@ -144,7 +145,8 @@ function getCreations(): array
             $ligne["surface_tissu"],
             new Categorie($ligne["id_categorie"], $ligne["nom_categorie"]), 
             new SplFileInfo($ligne["chemin"]), 
-            getTags($ligne["id_creation"]));
+            getTags($ligne["id_creation"]),
+            getTissus($ligne["id_creation"]));
     }
     $stmt->close();
     $mysqli->close();
@@ -169,6 +171,28 @@ function getAllTags(): array
     foreach($res as $ligne)
     {
         $liste_fin[]= new Tag($ligne["id_tag"], $ligne["nom"]);
+    }
+
+    return $liste_fin;
+}
+
+function getAllTissus(): array
+/*
+    Renvoie la liste de tous les tags
+*/
+{
+    $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
+    
+    $stmt = $mysqli->prepare("SELECT *
+    FROM tissu");
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    $liste_fin=[];
+
+    foreach($res as $ligne)
+    {
+        $liste_fin[]= new Tissu($ligne["id_tissu"], $ligne["nom"]);
     }
 
     return $liste_fin;
@@ -242,12 +266,35 @@ function getTagFromId(int $id_tag): Tag | null
     return new Tag($res["id_tag"], $res["nom"]);
 }
 
+function getTissuFromId(int $id_tissu): Tissu | null
+/*
+    Renvoie un tag en fonction de son id
+*/
+{
+    $mysqli = new mysqli("localhost","root","","la_couture_de_cp");
+    
+    $stmt = $mysqli->prepare("SELECT *
+    FROM tissu
+    WHERE id_tissu=?");
+    $stmt->bind_param("i", $id_tissu);
+    $stmt->execute();
+    $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    if(count($res) == 0){
+        return null;
+    }
+
+    $res = $res[0];
+
+    return new Tissu($res["id_tissu"], $res["nom"]);
+}
+
 function getFiltres():array
 /*
     Renvoie la liste de tous les filtres
 */
 {
-    $filtres=["categories"=>[],"tags"=>[]];
+    $filtres=["categories"=>[],"tags"=>[],"tissus"=>[]];
     foreach($_GET as $key=>$value)
     {
         if(str_starts_with($key, "categorie-"))
@@ -257,6 +304,10 @@ function getFiltres():array
         else if(str_starts_with($key, "tag-")) 
         {
             $filtres["tags"][]=getTagFromId(intval(substr($key,4)));
+        }
+        else if(str_starts_with($key,"tissu-"))
+        {
+            $filtres["tissus"][]=getTissuFromId(intval(substr($key,6)));
         }
     }
     return $filtres;
@@ -320,7 +371,8 @@ function getCarousel():array
             $res[$i]["surface_tissu"],
             new Categorie($res[$i]["id_categorie"], $res[$i]["nom_categorie"]), 
             new SplFileInfo($res[$i]["chemin"]), 
-            getTags($res[$i]["id_creation"]));
+            getTags($res[$i]["id_creation"]),
+            getTissus($res["id_creation"]));
     }
     $stmt->close();
     $mysqli->close();

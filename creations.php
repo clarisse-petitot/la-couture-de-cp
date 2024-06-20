@@ -5,6 +5,7 @@ require "fonctions.php";
 
 $creations = getCreations();
 $alltags = getAllTags();
+$alltissus = getAllTissus();
 $categories = getCategories();
 $filtres = getFiltres();
 
@@ -18,12 +19,19 @@ if (count($_GET) > 0) {
                 }
             }
             if (!$tag_in) {
-                unset($creations[$key]);
+                $tissu_in = false;
+                foreach ($creation->getTissus() as $tissu) {
+                    if (in_array($tissu, $filtres["tissus"])) {
+                        $tissu_in = true;
+                    }
+                }
+                if (!$tissu_in) {
+                    unset($creations[$key]);
+                }
             }
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -44,38 +52,6 @@ if (count($_GET) > 0) {
     <?php
     require './components/navbar.php';
     require './components/filters.php';
-    ?>
-
-    <h1>Mes Créations</h1>
-
-    <h3>Filtres : </h3>
-    <form action="creations.php">
-        <fieldset>
-            <legend>Categorie : </legend>
-            <?php
-            foreach ($categories as $categorie) {
-            ?>
-                <input type="checkbox" id="<?= $categorie->getIdCategorie() ?>" name="categorie-<?= $categorie->getIdCategorie() ?>">
-                <label for="<?= $categorie->getIdCategorie() ?>"><?= $categorie->getNom() ?></label>
-            <?php
-            }
-            ?>
-        </fieldset>
-        <fieldset>
-            <legend>Tag : </legend>
-            <?php
-            foreach ($alltags as $tag) {
-            ?>
-                <input type="checkbox" id="<?= $tag->getIdTag() ?>" name="tag-<?= $tag->getIdTag() ?>">
-                <label for="<?= $tag->getIdTag() ?>"><?= $tag->getNom() ?></label>
-            <?php
-            }
-            ?>
-        </fieldset>
-        <input type="submit" value="Valider">
-    </form>
-
-    <?php
     require './components/cards.php';
     ?>
 
