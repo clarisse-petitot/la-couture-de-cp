@@ -1,13 +1,3 @@
-<?php
-/*
-require "classes.php";
-require "fonctions.php";
-
-$creations = getCreations();
-*/
-?>
-
-
 <div class="bg-white">
     <div class="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
         <div class="relative mt-8">
