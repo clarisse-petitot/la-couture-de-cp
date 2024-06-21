@@ -48,7 +48,7 @@
             </svg>
         </div>
 
-        <form action="../creations.php">
+        <form action="creations.php">
             <!-- Categorie Section -->
             <div>
                 <div class="flex space-x-2 text-gray-800 dark:text-white">
