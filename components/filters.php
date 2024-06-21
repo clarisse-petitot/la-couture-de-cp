@@ -1,5 +1,5 @@
 <div class="2xl:container 2xl:mx-auto">
-    
+
     <div class="md:py-12 lg:px-20 md:px-6 py-9 px-4">
         <div class="flex justify-between items-center mb-4">
             <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Mes Créations</h2>
@@ -68,10 +68,10 @@
                     foreach ($categories as $categorie) {
                     ?>
                         <div class="flex md:justify-center md:items-center items-center justify-start">
-                            <input class="w-4 h-4 mr-2" type="checkbox" id="<?= $categorie->getIdCategorie() ?>" name="categorie-<?= $categorie->getIdCategorie() ?>" />
+                            <input class="w-4 h-4 mr-2" type="checkbox" value="true" id="categorie-<?= $categorie->getIdCategorie() ?>" name="categorie-<?= $categorie->getIdCategorie() ?>" <?php if (in_array($categorie, $filtres["categories"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
-                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="<?= $categorie->getIdCategorie() ?>"><?= $categorie->getNom() ?></label>
+                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="categorie-<?= $categorie->getIdCategorie() ?>"><?= $categorie->getNom() ?></label>
                                 </div>
                             </div>
                         </div>
@@ -99,10 +99,10 @@
                     foreach ($alltags as $tag) {
                     ?>
                         <div class="flex md:justify-center md:items-center items-center justify-start">
-                            <input class="w-4 h-4 mr-2" type="checkbox" id="<?= $tag->getIdTag() ?>" name="tag-<?= $tag->getIdTag() ?>"/>
+                            <input class="w-4 h-4 mr-2" type="checkbox" id="tag-<?= $tag->getIdTag() ?>" name="tag-<?= $tag->getIdTag() ?>" <?php if (in_array($tag, $filtres["tags"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
-                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="<?= $tag->getIdTag() ?>"><?= $tag->getNom() ?></label>
+                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tag-<?= $tag->getIdTag() ?>"><?= $tag->getNom() ?></label>
                                 </div>
                             </div>
                         </div>
@@ -133,10 +133,10 @@
                     foreach ($alltissus as $tissu) {
                     ?>
                         <div class="flex md:justify-center md:items-center items-center justify-start">
-                            <input class="w-4 h-4 mr-2" type="checkbox" id="<?= $tissu->getIdTissu() ?>" name="tissu-<?= $tissu->getIdTissu() ?>" />
+                            <input class="w-4 h-4 mr-2" type="checkbox" id="tissu-<?= $tissu->getIdTissu() ?>" name="tissu-<?= $tissu->getIdTissu() ?>" <?php if (in_array($tissu, $filtres["tissus"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
-                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="<?= $tissu->getIdTissu() ?>"><?= $tissu->getNom() ?></label>
+                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tissu-<?= $tissu->getIdTissu() ?>"><?= $tissu->getNom() ?></label>
                                 </div>
                             </div>
                         </div>
@@ -146,18 +146,29 @@
                 </div>
             </div>
 
-        <!-- Apply Filter Button (Large Screen) -->
+            <!-- Apply Filter Button (Large Screen) -->
 
+            <div class="hidden md:block absolute right-60 bottom-0 md:py-10 lg:px-20 md:px-6 py-9 px-4">
+                <input type="submit" value="Valider" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">
+            </div>
+
+            <!-- Apply Filter Button (Table or lower Screen) -->
+
+            <div class="block md:hidden w-full mt-10">
+                <input type="submit" value="Valider" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">
+            </div>
+        </form>
+
+        <!-- Apply Filter Button (Large Screen) -->
         <div class="hidden md:block absolute right-0 bottom-0 md:py-10 lg:px-20 md:px-6 py-9 px-4">
-            <input type="submit" value="Valider" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">
+            <a href="/creations.php"><button type="button" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">Réinitialiser</button></a>
         </div>
 
         <!-- Apply Filter Button (Table or lower Screen) -->
 
         <div class="block md:hidden w-full mt-10">
-            <input type="submit" value="Valider" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">
+            <a href="/creations.php"><button type="button" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">Réinitialiser</button></a>
         </div>
-        </form>
     </div>
 </div>
 <style>

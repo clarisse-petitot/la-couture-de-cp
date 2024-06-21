@@ -49,6 +49,7 @@ if (count($_GET) > 0) {
 </head>
 
 <body>
+    
     <?php
     require './components/navbar.php';
     require './components/filters.php';

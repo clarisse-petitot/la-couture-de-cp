@@ -372,7 +372,7 @@ function getCarousel():array
             new Categorie($res[$i]["id_categorie"], $res[$i]["nom_categorie"]), 
             new SplFileInfo($res[$i]["chemin"]), 
             getTags($res[$i]["id_creation"]),
-            getTissus($res["id_creation"]));
+            getTissus($res[$i]["id_creation"]));
     }
     $stmt->close();
     $mysqli->close();
