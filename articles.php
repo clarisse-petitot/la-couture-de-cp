@@ -18,7 +18,7 @@ $articles = getArticles();
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <style>
-            body{
+        body {
             background: url(./img/blob.svg);
             background-size: cover;
         }
@@ -30,21 +30,29 @@ $articles = getArticles();
     require './components/navbar.php';
     ?>
 
-    <h1>Mes Articles</h1>
+    <section class="text-gray-600 body-font overflow-hidden">
+    <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:py-8 lg:px-20 md:px-6 py-8 px-4">Mes Articles</h2>
+        <div class="container px-5 py-5 mx-auto">
+            <div class="-my-8 divide-y-2 divide-gray-100">
 
-    <?php
-    foreach ($articles as $article) {
-    ?>
-        <article>
-            <a href="<?= $article->getCheminPage() ?>">
-                <h3><?= $article->getTitre() ?></h3>
-                <p><?= $article->getDatePub() ?></p>
-                <img src="<?= $article->getCheminImg() ?>" alt="image représentant l'article en question">
-            </a>
-        </article>
-    <?php
-    }
-    ?>
+                <?php
+                foreach ($articles as $article) {
+                ?>
+                    <a href="<?= $article->getCheminPage() ?>">
+                        <div class="py-8 flex flex-wrap md:flex-nowrap">
+                            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col  mx-10">
+                                <img  class="rounded-lg w-72" src="<?= $article->getCheminImg() ?>" alt="image représentant l'article en question">
+                                <span class="mt-1 text-gray-500 text-sm"><?= $article->getDatePub() ?></span>
+                            </div>
+                            <div class="md:flex-grow ml-5">
+                                <h2 class="text-xl font-normal text-gray-900 title-font mb-2"><?= $article->getTitre() ?></h2>
+                                <p class="leading-relaxed text-justify"><?= $article->getTexte() ?></p>
+                            </div>
+                        </div>
+                    </a>
+                <?php
+                }
+                ?>
 
 </body>
 
