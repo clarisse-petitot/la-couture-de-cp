@@ -31,13 +31,19 @@ $prix = getPrix($creation);
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <style>
+            body{
+            background: url(./img/blob.svg);
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
     <?php
     require './components/navbar.php';
     ?>
-    <section class="text-gray-700 body-font overflow-hidden bg-white">
+    <section class="text-gray-700 body-font overflow-hidden">
         <div class="container px-5 py-12 mx-auto">
             <div class="lg:w-4/5 mx-auto flex flex-wrap">
                 <img src="<?= $creation->getChemin() ?>" alt="image représentant : <?= $creation->getNom() ?>" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200">
@@ -61,7 +67,7 @@ $prix = getPrix($creation);
                     </div>
 
                     <p class="leading-relaxed"><?= $creation->getDescription() ?></p>
-                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-300 mb-5">
                         <div class="flex ml-6 items-center">
                             <span class="mr-3">Categorie</span>
                             <div class="relative rounded border appearance-none border-gray-400 py-1 focus:outline-none focus:border-red-500 text-base pl-3 pr-3"><?= $creation->getCategorie()->getNom() ?></div>
@@ -91,7 +97,7 @@ $prix = getPrix($creation);
                             ?>
                         </span>
                     </div>
-                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                    <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-300 mb-5">
                         <div class="flex ml-6 items-center">
                             <span class="mr-3">Temps de Création</span>
                             <div class="relative rounded border appearance-none border-gray-400 py-1 focus:outline-none focus:border-red-500 text-base pl-3 pr-3"><?= $creation->getTpsCreation() ?>h</div>

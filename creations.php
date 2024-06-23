@@ -46,6 +46,12 @@ if (count($_GET) > 0) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script src="https://unpkg.com/alpinejs" defer=""></script>
+    <style>
+            body{
+            background: url(./img/blob.svg);
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>

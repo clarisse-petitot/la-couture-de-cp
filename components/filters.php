@@ -1,11 +1,11 @@
 <div class="2xl:container 2xl:mx-auto">
 
-    <div class="md:py-12 lg:px-20 md:px-6 py-9 px-4">
-        <div class="flex justify-between items-center mb-4">
+    <div class="md:py-6 lg:px-20 md:px-6 py-5 px-4">
+        <div class="flex justify-between items-center">
             <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Mes Créations</h2>
 
             <!-- filters Button (md and plus Screen) -->
-            <button onclick="showFilters()" class="cursor-pointer dark:bg-white dark:text-gray-800 text-white dark:hover:bg-gray-100 sm:flex hidden hover:bg-gray-700 focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-4 px-6 bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center">
+            <button onclick="showFilters()" class="cursor-pointer dark:bg-white dark:text-gray-800 text-white dark:hover:bg-gray-100 sm:flex hidden hover:bg-gray-700 focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-3 px-5 bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center">
                 <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 12C7.10457 12 8 11.1046 8 10C8 8.89543 7.10457 8 6 8C4.89543 8 4 8.89543 4 10C4 11.1046 4.89543 12 6 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M6 4V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -39,10 +39,10 @@
         </button>
     </div>
 
-    <div id="filterSection" class="block relative md:py-10 lg:px-20 md:px-6 py-9 px-4 bg-gray-50 dark:bg-gray-800 w-full">
+    <div id="filterSection" class="block relative md:py-5 lg:px-20 md:px-6 py-4 px-4 dark:bg-gray-800 w-full">
         <!-- Cross button Code -->
         <div onclick="closeFilterSection()" class="cursor-pointer text-gray-800 dark:text-white absolute right-0 top-0 md:py-10 lg:px-20 md:px-6 py-9 px-4">
-            <svg class="lg:w-6 lg:h-6 w-4 h-4" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="lg:w-5 lg:h-5 w-3 h-3" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25 1L1 25" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M1 1L25 25" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
@@ -52,7 +52,7 @@
             <!-- Categorie Section -->
             <div>
                 <div class="flex space-x-2 text-gray-800 dark:text-white">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="0.8">
                             <path d="M9 4H5C4.44772 4 4 4.44772 4 5V9C4 9.55228 4.44772 10 5 10H9C9.55228 10 10 9.55228 10 9V5C10 4.44772 9.55228 4 9 4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M9 14H5C4.44772 14 4 14.4477 4 15V19C4 19.5523 4.44772 20 5 20H9C9.55228 20 10 19.5523 10 19V15C10 14.4477 9.55228 14 9 14Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -61,9 +61,9 @@
                             <path d="M17 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </g>
                     </svg>
-                    <p class="lg:text-2xl text-xl lg:leading-6 leading-5 font-medium ">Catégories</p>
+                    <p class="lg:text-lg text-base lg:leading-6 leading-5 font-normal ">Catégories</p>
                 </div>
-                <div class="md:flex md:space-x-6 mt-8 grid grid-cols-3 gap-y-8 flex-wrap">
+                <div class="flex space-x-6 mt-4">
                     <?php
                     foreach ($categories as $categorie) {
                     ?>
@@ -81,20 +81,20 @@
                 </div>
             </div>
 
-            <hr class="bg-gray-200 lg:w-6/12 w-full md:my-10 my-8" />
+            <hr class="bg-gray-200 lg:w-6/12 w-full md:my-5 my-4" />
 
             <!-- Tag Section -->
             <div>
                 <div class="flex space-x-2 text-gray-800 dark:text-white ">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 3H15C14.4696 3 13.9609 3.21071 13.5858 3.58579C13.2107 3.96086 13 4.46957 13 5V17C13 18.0609 13.4214 19.0783 14.1716 19.8284C14.9217 20.5786 15.9391 21 17 21C18.0609 21 19.0783 20.5786 19.8284 19.8284C20.5786 19.0783 21 18.0609 21 17V5C21 4.46957 20.7893 3.96086 20.4142 3.58579C20.0391 3.21071 19.5304 3 19 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M12.9994 7.35022L10.9994 5.35022C10.6243 4.97528 10.1157 4.76465 9.58539 4.76465C9.05506 4.76465 8.54644 4.97528 8.17139 5.35022L5.34339 8.17822C4.96844 8.55328 4.75781 9.06189 4.75781 9.59222C4.75781 10.1225 4.96844 10.6312 5.34339 11.0062L14.3434 20.0062" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M7.3 13H5C4.46957 13 3.96086 13.2107 3.58579 13.5858C3.21071 13.9609 3 14.4696 3 15V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M17 17V17.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <p class="lg:text-2xl text-xl lg:leading-6 leading-5 font-medium ">Tags</p>
+                    <p class="lg:text-lg text-base lg:leading-6 leading-5 font-normal ">Tags</p>
                 </div>
-                <div class="flex mt-8 space-x-8">
+                <div class="flex mt-4 space-x-6">
                     <?php
                     foreach ($alltags as $tag) {
                     ?>
@@ -112,12 +112,12 @@
                 </div>
             </div>
 
-            <hr class="bg-gray-200 lg:w-6/12 w-full md:my-10 my-8" />
+            <hr class="bg-gray-200 lg:w-6/12 w-full md:my-5 my-4" />
 
             <!-- Tissu Section -->
             <div>
                 <div class="flex space-x-2 text-gray-800 dark:text-white">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 5H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M12 7L14 5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M5 3L3 5L5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -126,9 +126,9 @@
                         <path d="M21 12L19 10L17 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M12 10H5C3.89543 10 3 10.8954 3 12V19C3 20.1046 3.89543 21 5 21H12C13.1046 21 14 20.1046 14 19V12C14 10.8954 13.1046 10 12 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <p class="lg:text-2xl text-xl lg:leading-6 leading-5 font-medium ">Tissus</p>
+                    <p class="lg:text-lg text-base lg:leading-6 leading-5 font-normal ">Tissus</p>
                 </div>
-                <div class="md:flex md:space-x-6 mt-8 grid grid-cols-3 gap-y-8 flex-wrap">
+                <div class="flex space-x-6 mt-4">
                     <?php
                     foreach ($alltissus as $tissu) {
                     ?>
@@ -148,26 +148,26 @@
 
             <!-- Apply Filter Button (Large Screen) -->
 
-            <div class="hidden md:block absolute right-60 bottom-0 md:py-10 lg:px-20 md:px-6 py-9 px-4">
-                <input type="submit" value="Valider" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">
+            <div class="hidden md:block absolute right-40 bottom-0 md:py-5 lg:px-10 md:px-5 py-5 px-4">
+                <input type="submit" value="Valider" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-4 px-6 text-white bg-gray-800">
             </div>
 
             <!-- Apply Filter Button (Table or lower Screen) -->
 
-            <div class="block md:hidden w-full mt-10">
-                <input type="submit" value="Valider" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">
+            <div class="block md:hidden w-full mt-5">
+                <input type="submit" value="Valider" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-3 px-5 text-white bg-gray-800">
             </div>
         </form>
 
-        <!-- Apply Filter Button (Large Screen) -->
-        <div class="hidden md:block absolute right-0 bottom-0 md:py-10 lg:px-20 md:px-6 py-9 px-4">
-            <a href="/creations.php"><button type="button" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">Réinitialiser</button></a>
+        <!-- Reset Filter Button (Large Screen) -->
+        <div class="hidden md:block absolute right-0 bottom-0 md:py-5 lg:px-10 md:px-5 py-5 px-4">
+            <a href="/creations.php"><button type="button" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-4 px-6 text-white bg-gray-800">Réinitialiser</button></a>
         </div>
 
-        <!-- Apply Filter Button (Table or lower Screen) -->
+        <!-- Reset Filter Button (Table or lower Screen) -->
 
-        <div class="block md:hidden w-full mt-10">
-            <a href="/creations.php"><button type="button" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-medium py-4 px-10 text-white bg-gray-800">Réinitialiser</button></a>
+        <div class="block md:hidden w-full mt-5">
+            <a href="/creations.php"><button type="button" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-3 px-5 text-white bg-gray-800">Réinitialiser</button></a>
         </div>
     </div>
 </div>

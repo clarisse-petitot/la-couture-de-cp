@@ -12,10 +12,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+    <style>
+            body{
+            background: url(./img/blob.svg);
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
-
     <?php
     require './components/navbar.php';
     require './components/carousel.php'
