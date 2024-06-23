@@ -48,7 +48,7 @@ if (count($_GET) > 0) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <style>
             body{
-            background: url(./img/blob.svg);
+            background: url(./img/blob.jpg);
             background-size: cover;
         }
     </style>

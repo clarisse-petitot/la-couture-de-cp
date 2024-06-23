@@ -49,7 +49,7 @@ if (count($_GET) > 0) {
     <script src="https://unpkg.com/alpinejs" defer=""></script>
     <style>
             body{
-            background: url(./img/blob.svg);
+            background: url(./img/blob.jpg);
             background-size: cover;
         }
     </style>
