@@ -8,7 +8,7 @@ $alltags = getAllTags();
 $alltissus = getAllTissus();
 $categories = getCategories();
 $filtres = getFiltres();
-$vendre = false;
+$vendre = true;
 
 if (count($_GET) > 0) {
     foreach ($creations as $key => $creation) {
@@ -41,12 +41,11 @@ if (count($_GET) > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creations | La Couture de CP</title>
+    <title>Passer une commande | La Couture de CP</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://unpkg.com/alpinejs" defer=""></script>
     <style>
             body{
             background: url(./img/blob.svg);
@@ -56,14 +55,13 @@ if (count($_GET) > 0) {
 </head>
 
 <body class="min-h-full relative">
-    
+
     <?php
     require './components/navbar.php';
     require './components/filters.php';
-    require './components/cards.php';
+    require './components/cards_vendre.php';
     require './components/footer.php';
     ?>
 
 </body>
-
 </html>

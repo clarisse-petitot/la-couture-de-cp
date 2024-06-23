@@ -2,8 +2,7 @@
 
     <div class="md:py-6 lg:px-20 md:px-6 py-5 px-4">
         <div class="flex justify-between items-center">
-            <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Mes Créations</h2>
-
+            <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Mes Créations <?php if ($vendre) { ?> à vendre <?php } ?></h2>
             <!-- filters Button (md and plus Screen) -->
             <button onclick="showFilters()" class="cursor-pointer dark:bg-white dark:text-gray-800 text-white dark:hover:bg-gray-100 sm:flex hidden hover:bg-gray-700 focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-3 px-5 bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center">
                 <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +38,7 @@
         </button>
     </div>
 
-    <div id="filterSection" class="block relative md:py-5 lg:px-20 md:px-6 py-4 px-4 dark:bg-gray-800 w-full">
+    <div id="filterSection" class="hidden block relative md:py-5 lg:px-20 md:px-6 py-4 px-4 dark:bg-gray-800 w-full">
         <!-- Cross button Code -->
         <div onclick="closeFilterSection()" class="cursor-pointer text-gray-800 dark:text-white absolute right-0 top-0 md:py-10 lg:px-20 md:px-6 py-9 px-4">
             <svg class="lg:w-5 lg:h-5 w-3 h-3" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
