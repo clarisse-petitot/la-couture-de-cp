@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
 
 <head>
     <meta charset="UTF-8">
@@ -20,10 +20,11 @@
     </style>
 </head>
 
-<body>
+<body class="min-h-full relative">
     <?php
     require './components/navbar.php';
-    require './components/carousel.php'
+    require './components/carousel.php';
+    require './components/footer.php';
     ?>
 
 

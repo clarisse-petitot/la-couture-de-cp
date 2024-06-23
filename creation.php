@@ -22,7 +22,7 @@ $prix = getPrix($creation);
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
 
 <head>
     <meta charset="UTF-8">
@@ -39,7 +39,7 @@ $prix = getPrix($creation);
     </style>
 </head>
 
-<body>
+<body class="min-h-full relative">
     <?php
     require './components/navbar.php';
     ?>
@@ -124,7 +124,9 @@ $prix = getPrix($creation);
             </div>
         </div>
     </section>
-
+    <?php
+    require './components/footer.php';
+    ?>
 </body>
 
 </html>

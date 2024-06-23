@@ -35,7 +35,7 @@ if (count($_GET) > 0) {
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
 
 <head>
     <meta charset="UTF-8">
@@ -54,12 +54,13 @@ if (count($_GET) > 0) {
     </style>
 </head>
 
-<body>
+<body class="min-h-full relative">
     
     <?php
     require './components/navbar.php';
     require './components/filters.php';
     require './components/cards.php';
+    require './components/footer.php';
     ?>
 
 </body>

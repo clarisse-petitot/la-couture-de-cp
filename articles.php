@@ -8,7 +8,7 @@ $articles = getArticles();
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +25,7 @@ $articles = getArticles();
     </style>
 </head>
 
-<body>
+<body class="min-h-full relative">
     <?php
     require './components/navbar.php';
     ?>
@@ -52,8 +52,8 @@ $articles = getArticles();
                     </a>
                 <?php
                 }
-                ?>
-
+    require './components/footer.php';
+    ?>
 </body>
 
 </html>

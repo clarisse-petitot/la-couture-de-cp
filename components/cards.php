@@ -1,6 +1,6 @@
     <div class="py-5 sm:py-10 lg:mx-auto lg:max-w-7xl lg:px-8">
         <div class="relative">
-            <div class="relative -mb-6 w-full overflow-x-auto pb-6">
+            <div class="relative mb-6 w-full overflow-x-auto pb-6">
                 <ul role="list" class="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-x-0">
 
                     <?php
