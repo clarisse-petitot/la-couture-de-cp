@@ -1,6 +1,6 @@
-<footer class="bg-black sm:p-6 dark:bg-gray-800 absolute bottom-0 right-0 left-0">
+<footer class="bg-gray-200/25 sm:p-6 dark:bg-gray-800 absolute bottom-0 right-0 left-0">
     <div class="sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="/index.php" target="_blank" class="hover:underline">La Couture de CP</a> - contact@lacouturedecp.fr
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-500">© 2024 <a href="/index.php" target="_blank" class="hover:underline">La Couture de CP</a> - contact@lacouturedecp.fr
         </span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="mailto:clarisse.petitot@gmail.com" class="text-gray-500 hover:text-gray-700 dark:hover:text-white">
