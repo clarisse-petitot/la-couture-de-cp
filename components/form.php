@@ -1,7 +1,7 @@
-<form class="px-72 py-20" method='POST'>
+<form class="px-20 md:px-60 lg:px-72 py-20" method='POST'>
     <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
-            <h2 class="text-base font-semibold leading-7 text-gray-900 lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Passer une commande</h2>
+            <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Passer une commande</h2>
 
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-4">
