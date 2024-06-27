@@ -2,10 +2,8 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-function sendTestMail(string $dest): void
+function sendMail(string $email, string $nom, string $prenom, string $objet, string $description): void
 {
-
-
     $env = parse_ini_file('.env');
 
     $api_key = $env["RESEND_API_KEY"];
@@ -13,8 +11,15 @@ function sendTestMail(string $dest): void
 
     $resend->emails->send([
         'from' => 'contact@lacouturedecp.fr',
-        'to' => $dest,
-        'subject' => 'Test email from lcdcp',
-        'html' => 'This is a test email send using Resend from La Couture de CP'
+        'to' => 'contact@lacouturedecp.fr',
+        'subject' => $objet,
+        'html' => $prenom ." ".$nom ." souhaite commander voici la description : " . $description.". Son email est : ".$email,
+    ]);
+
+    $resend->emails->send([
+        'from' => 'contact@lacouturedecp.fr',
+        'to' => $email,
+        'subject' => $objet,
+        'html' => "Votre commande a bien été envoyée",
     ]);
 }

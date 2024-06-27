@@ -56,21 +56,25 @@ if (count($_GET) > 0) {
 
 <?php
 
+$res=null;
+$_POST["email"]=null;
+$_POST["objet"]=null;
+$_POST["description"]=null;
+$_POST["nom"]=null;
+$_POST["prenom"]=null;
+$_POST["adresse"]=null;
+$_POST["ville"]=null;
+$_POST["codep"]=null;
+$_POST["pays"]=null;
 
-
-if (isset($_POST['email']) && !empty($_POST['email'])) {
-    // define('MAILHOST', "smtp.gmail.com");
-    // $subject = "New contact request: " . $_POST['objet'];
-    // $message = $_POST['prenom'] . " " . $_POST['nom'] . "souhaite commander voici la description : " . $_POST['description'];
-    // $headers = 'From: info@website.com' . "\r\n" .
-    //     'Reply-To: ' . $_POST['email'] . "\r\n" .
-    //     'X-Mailer: PHP/' . phpversion();
-
-    // echo mail('clarisse.petitot@gmail.com', $subject, $message, $headers);
-
-    // die('Thank you for your email');
-    require_once 'lib/mail_service.php';
-    sendTestMail("clarisse.petitot@gmail.com");
+if (isset($_POST['submit'])) {
+    if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['description']) && !empty($_POST['description']) && isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['prenom']) && !empty($_POST['prenom']) && isset($_POST['objet']) && !empty($_POST['objet']) && isset($_POST['adresse']) && !empty($_POST['adresse']) && isset($_POST['ville']) && !empty($_POST['ville']) && isset($_POST['pays']) && !empty($_POST['pays']) && isset($_POST['conditions'])) {
+        require_once 'lib/mail_service.php';
+        sendMail($_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['objet'], $_POST['description']);
+        $res = "succes";
+    } else {
+        $res = "Veuillez remplir tous les champs";
+    }
 }
 ?>
 
