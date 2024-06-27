@@ -55,17 +55,22 @@ if (count($_GET) > 0) {
 </head>
 
 <?php
+
+
+
 if (isset($_POST['email']) && !empty($_POST['email'])) {
-    define('MAILHOST', "smtp.gmail.com");
-    $subject = "New contact request: " . $_POST['objet'];
-    $message = $_POST['prenom'] . " " . $_POST['nom'] . "souhaite commander voici la description : " . $_POST['description'];
-    $headers = 'From: info@website.com' . "\r\n" .
-        'Reply-To: ' . $_POST['email'] . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
+    // define('MAILHOST', "smtp.gmail.com");
+    // $subject = "New contact request: " . $_POST['objet'];
+    // $message = $_POST['prenom'] . " " . $_POST['nom'] . "souhaite commander voici la description : " . $_POST['description'];
+    // $headers = 'From: info@website.com' . "\r\n" .
+    //     'Reply-To: ' . $_POST['email'] . "\r\n" .
+    //     'X-Mailer: PHP/' . phpversion();
 
-    echo mail('clarisse.petitot@gmail.com', $subject, $message, $headers);
+    // echo mail('clarisse.petitot@gmail.com', $subject, $message, $headers);
 
-    die('Thank you for your email');
+    // die('Thank you for your email');
+    require_once 'lib/mail_service.php';
+    sendTestMail("clarisse.petitot@gmail.com");
 }
 ?>
 
