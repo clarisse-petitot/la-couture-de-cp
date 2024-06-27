@@ -56,17 +56,6 @@ if (count($_GET) > 0) {
 
 <?php
 
-$res=null;
-$_POST["email"]=null;
-$_POST["objet"]=null;
-$_POST["description"]=null;
-$_POST["nom"]=null;
-$_POST["prenom"]=null;
-$_POST["adresse"]=null;
-$_POST["ville"]=null;
-$_POST["codep"]=null;
-$_POST["pays"]=null;
-
 if (isset($_POST['submit'])) {
     if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['description']) && !empty($_POST['description']) && isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['prenom']) && !empty($_POST['prenom']) && isset($_POST['objet']) && !empty($_POST['objet']) && isset($_POST['adresse']) && !empty($_POST['adresse']) && isset($_POST['ville']) && !empty($_POST['ville']) && isset($_POST['pays']) && !empty($_POST['pays']) && isset($_POST['conditions'])) {
         require_once 'lib/mail_service.php';
@@ -75,6 +64,17 @@ if (isset($_POST['submit'])) {
     } else {
         $res = "Veuillez remplir tous les champs";
     }
+} else {
+    $res = null;
+    $_POST["email"] = null;
+    $_POST["objet"] = null;
+    $_POST["description"] = null;
+    $_POST["nom"] = null;
+    $_POST["prenom"] = null;
+    $_POST["adresse"] = null;
+    $_POST["ville"] = null;
+    $_POST["codep"] = null;
+    $_POST["pays"] = null;
 }
 ?>
 

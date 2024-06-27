@@ -20,6 +20,6 @@ function sendMail(string $email, string $nom, string $prenom, string $objet, str
         'from' => 'contact@lacouturedecp.fr',
         'to' => $email,
         'subject' => $objet,
-        'html' => "Votre commande a bien été envoyée",
+        'html' => file_get_contents("./lib/template.html"),
     ]);
 }
