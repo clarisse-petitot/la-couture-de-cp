@@ -17,7 +17,7 @@ $categories = getCategories();
 $filtres = getFiltres();
 $vendre = false;
 
-if (count($_GET) > 0) {
+if (count($_GET) > 1) {
     foreach ($creations as $key => $creation) {
         if (!in_array($creation->getCategorie(), $filtres["categories"])) {
             $tag_in = false;
