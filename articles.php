@@ -41,7 +41,7 @@ $articles = getArticles();
                     <a href="<?= $article->getCheminPage() ?>">
                         <div class="py-8 flex flex-wrap md:flex-nowrap">
                             <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col  mx-10">
-                                <img  class="rounded-lg w-72" src="<?= $article->getCheminImg() ?>" alt="image représentant l'article en question">
+                                <img  class="rounded-lg w-72" src="article/<?= $article->getIdArticle() ?>.png" alt="image représentant l'article en question">
                                 <span class="mt-1 text-gray-500 text-sm"><?= $article->getDatePub() ?></span>
                             </div>
                             <div class="md:flex-grow ml-5">
