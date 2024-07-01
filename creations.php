@@ -3,6 +3,13 @@
 require "classes.php";
 require "fonctions.php";
 
+if (!isset($_GET["id_page"])) {
+    header("Location: creations.php?id_page=1");
+    exit;
+}
+
+$id_page=$_GET["id_page"];
+
 $creations = getCreations();
 $alltags = getAllTags();
 $alltissus = getAllTissus();
@@ -33,6 +40,19 @@ if (count($_GET) > 0) {
         }
     }
 }
+
+if(count($creations)%18==0){
+    $nbr_page=count($creations)/18;
+}
+else{
+    $nbr_page=intval(count($creations)/18) + 1;
+}
+if ($nbr_page<$id_page) {
+    header("Location: creations.php?id_page=1");
+    exit;
+}
+
+$creations=array_slice($creations, 18*($id_page-1),18);
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +81,7 @@ if (count($_GET) > 0) {
     require './components/navbar.php';
     require './components/filters.php';
     require './components/cards.php';
+    require './components/pagination.php';
     require './components/footer.php';
     ?>
 
