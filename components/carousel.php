@@ -7,7 +7,7 @@ $carousel = getCarousel()
 
 ?>
 
-<section class="splide mt-16" aria-label="Splide Basic HTML Example">
+<section class="splide mt-16">
     <div class="splide__track">
         <ul class="splide__list">
             <?php
@@ -16,8 +16,8 @@ $carousel = getCarousel()
             ?>
             <li class="splide__slide">
                 <a href="creation.php?id_creation=<?= $creation->getIdCreation() ?>">
-                <div class="relative h-[250px] w-[250px] cursor-pointer" style="background-image:linear-gradient(0deg,rgba(255,255,255,.3)0%,rgba(0,212,255,0) 25%), url('<?= $creation->getChemin() ?>');background-size:cover;">
-                    <span class="absolute bottom-5 left-5 text-black"><?=$creation->getNom()?></span>
+                <div class="relative h-[250px] w-[250px] cursor-pointer rounded-md group-hover:opacity-75" style="background-image:linear-gradient(0deg,rgba(255,255,255,.6)0%,rgba(0,212,255,0) 25%), url('img/creations/resized/<?= $creation->getIdCreation() ?>_low.png');background-size:cover;">
+                    <span class="absolute bottom-2 left-3 text-black/75 text-lg font-semibold"><?=$creation->getNom()?></span>
                 </div>
                 </a>
             </li>
@@ -35,7 +35,7 @@ $carousel = getCarousel()
         focus: 'center',
         arrows: boolean = false,
         pagination: boolean = false,
-        perPage: 4,
+        perPage: 3,
         autoScroll: {
             speed: 1,
         },

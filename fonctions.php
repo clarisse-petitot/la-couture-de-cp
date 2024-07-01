@@ -7,10 +7,9 @@ function getCreation(int $id_creation): Creation | null
 {
     $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
 
-    $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie, i.chemin
+    $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie
     FROM creation c
     JOIN categorie ca ON c.id_categorie=ca.id_categorie
-    JOIN image i ON i.id_image=c.id_image
     WHERE id_creation = ?");
     $stmt->bind_param("i", $id_creation);
     $stmt->execute();
@@ -30,7 +29,6 @@ function getCreation(int $id_creation): Creation | null
         $res["tps_creation"],
         $res["surface_tissu"],
         new Categorie($res["id_categorie"], $res["nom_categorie"]),
-        new SplFileInfo($res["chemin"]),
         getTags($res["id_creation"]),
         getTissus($res["id_creation"])
     );
@@ -123,10 +121,9 @@ function getCreations(): array
 {
     $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
 
-    $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie, i.chemin
+    $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie
     FROM creation c
     JOIN categorie ca ON c.id_categorie=ca.id_categorie
-    JOIN image i ON i.id_image=c.id_image
     ORDER BY RAND()");
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -142,7 +139,6 @@ function getCreations(): array
             $ligne["tps_creation"],
             $ligne["surface_tissu"],
             new Categorie($ligne["id_categorie"], $ligne["nom_categorie"]),
-            new SplFileInfo($ligne["chemin"]),
             getTags($ligne["id_creation"]),
             getTissus($ligne["id_creation"])
         );
@@ -310,9 +306,8 @@ function getArticles(): array
 {
     $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
 
-    $stmt = $mysqli->prepare("SELECT a.*, i.chemin as chemin_img
-    FROM article a
-    JOIN image i ON i.id_image=a.id_image");
+    $stmt = $mysqli->prepare("SELECT a.*
+    FROM article a");
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
@@ -323,7 +318,6 @@ function getArticles(): array
             $ligne["id_article"],
             $ligne["titre"],
             $ligne["date_pub"],
-            new SplFileInfo($ligne["chemin_img"]),
             new SplFileInfo($ligne["chemin_page"]),
             $ligne["description"]
         );
@@ -341,10 +335,9 @@ function getCarousel(): array
     */
     $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
 
-    $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie, i.chemin
+    $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie
     FROM creation c
     JOIN categorie ca ON c.id_categorie=ca.id_categorie
-    JOIN image i ON i.id_image=c.id_image
     ORDER BY c.id_creation DESC");
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -360,7 +353,6 @@ function getCarousel(): array
             $res[$i]["tps_creation"],
             $res[$i]["surface_tissu"],
             new Categorie($res[$i]["id_categorie"], $res[$i]["nom_categorie"]),
-            new SplFileInfo($res[$i]["chemin"]),
             getTags($res[$i]["id_creation"]),
             getTissus($res[$i]["id_creation"])
         );

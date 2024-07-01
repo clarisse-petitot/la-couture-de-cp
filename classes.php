@@ -9,11 +9,10 @@ class Creation{
     private $tps_creation;
     private $surface_tissu;
     private $categorie;
-    private $chemin_img;
     private $tags;
     private $tissus;
 
-    public function __construct(int $id_creation, string $nom, string $description, string $taille, int $tps_creation, string $surface_tissu, Categorie $categorie, SplFileInfo $chemin_img, array $tags, array $tissus) {
+    public function __construct(int $id_creation, string $nom, string $description, string $taille, int $tps_creation, string $surface_tissu, Categorie $categorie, array $tags, array $tissus) {
         $this->id_creation = $id_creation;
         $this->nom = $nom;
         $this->description = $description;
@@ -21,7 +20,6 @@ class Creation{
         $this->tps_creation = $tps_creation;
         $this->surface_tissu = $surface_tissu;
         $this->categorie = $categorie;
-        $this->chemin_img = $chemin_img;
         $this->tags = $tags;
         $this->tissus = $tissus;
 
@@ -47,9 +45,6 @@ class Creation{
     }
     public function getCategorie():Categorie{
         return $this->categorie;
-    }
-    public function getChemin():SplFileInfo{
-        return $this->chemin_img;
     }
     public function getTags():array{
         return $this->tags;
@@ -152,16 +147,14 @@ class Article
     private int $id_article;
     private string $titre;
     private string $date_pub;
-    private SplFileInfo $chemin_img;
     private SplFileInfo $chemin_page;
     private string $texte;
 
-    public function __construct(int $id_article, string $titre, string $date_pub, SplFileInfo $chemin_img, SplFileInfo $chemin_page, string $texte)
+    public function __construct(int $id_article, string $titre, string $date_pub, SplFileInfo $chemin_page, string $texte)
     {
         $this->id_article=$id_article;
         $this->titre=$titre;
         $this->date_pub=$date_pub;
-        $this->chemin_img=$chemin_img;
         $this->chemin_page=$chemin_page;
         $this->texte=$texte;
     }
@@ -177,10 +170,6 @@ class Article
     public function getDatePub(): string
     {
         return $this->date_pub;
-    }
-    public function getCheminImg(): SplFileInfo
-    {
-        return $this->chemin_img;
     }
     public function getCheminPage(): SplFileInfo
     {
