@@ -1,7 +1,7 @@
-    <div class="py-5 sm:py-10 lg:mx-auto lg:max-w-7xl lg:px-8">
+<div class="py-5 lg:mx-auto lg:max-w-7xl lg:px-8">
         <div class="relative">
-            <div class="relative mb-6 w-full overflow-x-auto pb-6">
-                <ul role="list" class="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-x-0">
+            <div class="relative mb-6 w-full overflow-x-auto pb-6 px-20">
+                <ul role="list" class="inline-flex mx-0 grid sm:grid-cols-1 space-x-0 md:grid-cols-2 md:gap-x-10 lg:grid-cols-3 lg:gap-x-10">
 
                     <?php
                     foreach ($creations as $creation) {
@@ -9,8 +9,8 @@
                         {
                     ?>
                     <a href="creation.php?id_creation=<?= $creation->getIdCreation() ?>">
-                        <li class="inline-flex w-64 flex-col text-center lg:w-auto p-3 bg-black/25 m-3 rounded-md">
-                            <div class="group relative">
+                            <li class="inline-flex flex-col text-center w-auto p-3 bg-black/25 m-3 rounded-md ">
+                                <div class="group relative">
                                     <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
                                     <img src="img/creations/resized/<?= $creation->getIdCreation() ?>_low.png" alt="image représentant : <?= $creation->getNom() ?>" class="h-full w-full object-cover object-center group-hover:opacity-75">
                                 </div>
@@ -20,8 +20,9 @@
                                             <?= $creation->getNom() ?>
                                     </h3>
                                 </div>
-                            </div>
-                        </li></a>
+                                </div>
+                            </li>
+                        </a>
                     <?php
                         }
                     }
