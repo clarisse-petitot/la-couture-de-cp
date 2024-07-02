@@ -62,11 +62,11 @@
                     </svg>
                     <p class="lg:text-lg text-base lg:leading-6 leading-5 font-normal ">Catégories</p>
                 </div>
-                <div class="flex space-x-6 mt-4">
+                <div class="flex flex-wrap mt-4 max-w-lg">
                     <?php
                     foreach ($categories as $categorie) {
                     ?>
-                        <div class="flex md:justify-center md:items-center items-center justify-start">
+                        <div class="flex md:justify-center md:items-center items-center justify-start p-2 pr-6">
                             <input class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" type="checkbox" value="true" id="categorie-<?= $categorie->getIdCategorie() ?>" name="categorie-<?= $categorie->getIdCategorie() ?>" <?php if (in_array($categorie, $filtres["categories"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
@@ -93,15 +93,15 @@
                     </svg>
                     <p class="lg:text-lg text-base lg:leading-6 leading-5 font-normal ">Tags</p>
                 </div>
-                <div class="flex mt-4 space-x-6">
+                <div class="flex flex-wrap mt-4 max-w-lg">
                     <?php
                     foreach ($alltags as $tag) {
                     ?>
-                        <div class="flex md:justify-center md:items-center items-center justify-start">
+                        <div class="flex md:justify-center md:items-center items-center justify-start p-2 pr-6">
                             <input class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" type="checkbox" id="tag-<?= $tag->getIdTag() ?>" name="tag-<?= $tag->getIdTag() ?>" <?php if (in_array($tag, $filtres["tags"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
-                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tag-<?= $tag->getIdTag() ?>"><?= $tag->getNom() ?></label>
+                                    <label class="text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tag-<?= $tag->getIdTag() ?>"><?= $tag->getNom() ?></label>
                                 </div>
                             </div>
                         </div>
@@ -127,15 +127,15 @@
                     </svg>
                     <p class="lg:text-lg text-base lg:leading-6 leading-5 font-normal ">Tissus</p>
                 </div>
-                <div class="flex space-x-6 mt-4">
+                <div class="flex flex-wrap mt-4 max-w-lg">
                     <?php
                     foreach ($alltissus as $tissu) {
                     ?>
-                        <div class="flex md:justify-center md:items-center items-center justify-start">
+                        <div class="flex md:justify-center md:items-center items-center justify-start p-2 pr-6">
                             <input type="checkbox" class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" id="tissu-<?= $tissu->getIdTissu() ?>" name="tissu-<?= $tissu->getIdTissu() ?>" <?php if (in_array($tissu, $filtres["tissus"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
-                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tissu-<?= $tissu->getIdTissu() ?>"><?= $tissu->getNom() ?></label>
+                                    <label class="text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tissu-<?= $tissu->getIdTissu() ?>"><?= $tissu->getNom() ?></label>
                                 </div>
                             </div>
                         </div>
