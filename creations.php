@@ -8,7 +8,7 @@ if (!isset($_GET["id_page"])) {
     exit;
 }
 
-$id_page=$_GET["id_page"];
+$id_page = $_GET["id_page"];
 
 $creations = getCreations();
 $alltags = getAllTags();
@@ -19,23 +19,21 @@ $vendre = false;
 
 if (count($_GET) > 1) {
     foreach ($creations as $key => $creation) {
-        if (count($filtres["categories"])!=0 and !in_array($creation->getCategorie(), $filtres["categories"])) {
+        if (count($filtres["categories"]) != 0 and !in_array($creation->getCategorie(), $filtres["categories"])) {
             unset($creations[$key]);
         }
-            if (count($filtres["tags"])!=0)
-            {
-                $tag_in = false;
+        if (count($filtres["tags"]) != 0) {
+            $tag_in = false;
             foreach ($creation->getTags() as $tag) {
                 if (in_array($tag, $filtres["tags"])) {
                     $tag_in = true;
                 }
             }
-            if(!$tag_in){
+            if (!$tag_in) {
                 unset($creations[$key]);
             }
-                if(count($filtres["tissus"])!=0)
-                {
-                    $tissu_in = false;
+            if (count($filtres["tissus"]) != 0) {
+                $tissu_in = false;
                 foreach ($creation->getTissus() as $tissu) {
                     if (in_array($tissu, $filtres["tissus"])) {
                         $tissu_in = true;
@@ -44,23 +42,22 @@ if (count($_GET) > 1) {
                 if (!$tissu_in) {
                     unset($creations[$key]);
                 }
-                }
             }
         }
     }
+}
 
-if(count($creations)%18==0){
-    $nbr_page_total=count($creations)/18;
+if (count($creations) % 18 == 0) {
+    $nbr_page_total = count($creations) / 18;
+} else {
+    $nbr_page_total = intval(count($creations) / 18) + 1;
 }
-else{
-    $nbr_page_total=intval(count($creations)/18) + 1;
-}
-if ($nbr_page_total<$id_page-1) {
+if ($nbr_page_total < $id_page - 1) {
     header("Location: creations.php?id_page=1");
     exit;
 }
 
-$creations=array_slice($creations, 18*($id_page-1),18);
+$creations = array_slice($creations, 18 * ($id_page - 1), 18);
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +73,7 @@ $creations=array_slice($creations, 18*($id_page-1),18);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script src="https://unpkg.com/alpinejs" defer=""></script>
     <style>
-            body{
+        body {
             background: url(./img/blob.jpg);
             background-size: cover;
         }
@@ -84,15 +81,13 @@ $creations=array_slice($creations, 18*($id_page-1),18);
 </head>
 
 <body class="min-h-full relative">
-    
+
     <?php
     require './components/navbar.php';
     require './components/filters.php';
-    if($nbr_page_total==0)
-    {
+    if ($nbr_page_total == 0) {
         require './components/error.php';
-    }
-    else{
+    } else {
         require './components/cards.php';
         require './components/pagination.php';
     }
