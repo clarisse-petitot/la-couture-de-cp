@@ -156,6 +156,8 @@
             <div class="block md:hidden w-full mt-5">
                 <input type="submit" value="Valider" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-3 px-5 text-white bg-gray-800">
             </div>
+
+            <input type="hidden" value="1" name="id_page">
         </form>
 
         <!-- Reset Filter Button (Large Screen) -->

@@ -1,11 +1,13 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/classes/Database.php";
+
 function getCreation(int $id_creation): Creation | null
 /*
     Renvoie la création sous forme de sa classe en fonction de son id
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie
     FROM creation c
@@ -44,7 +46,7 @@ function getTags(int $id_creation): array
     Renvoie la liste des tags d'une creation en fonction de son id
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT tag.*
     FROM creation c
@@ -72,7 +74,7 @@ function getTissus(int $id_creation): array
     Renvoie la liste des tissus d'une creation en fonction de son id
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT t.*
     FROM creation c
@@ -100,7 +102,7 @@ function getPrix(Creation $creation): int
     Renvoie le prix d'une creation
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT prix
     FROM offre
@@ -119,12 +121,12 @@ function getCreations(): array
     Renvoie la liste de toutes les creations
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie
     FROM creation c
     JOIN categorie ca ON c.id_categorie=ca.id_categorie
-    ORDER BY RAND()");
+    ORDER BY c.id_creation DESC");
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
@@ -154,7 +156,7 @@ function getAllTags(): array
     Renvoie la liste de tous les tags
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT *
     FROM tag");
@@ -175,7 +177,7 @@ function getAllTissus(): array
     Renvoie la liste de tous les tags
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT *
     FROM tissu");
@@ -196,7 +198,7 @@ function getCategories(): array
     Renvoie la liste de toutes les catégories
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT *
     FROM categorie");
@@ -217,7 +219,7 @@ function getCategorieFromId(int $id_categorie): Categorie | null
     Renvoie la catégorie d'une creation en fonction de son id
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT *
     FROM categorie
@@ -240,7 +242,7 @@ function getTagFromId(int $id_tag): Tag | null
     Renvoie un tag en fonction de son id
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT *
     FROM tag
@@ -263,7 +265,7 @@ function getTissuFromId(int $id_tissu): Tissu | null
     Renvoie un tag en fonction de son id
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT *
     FROM tissu
@@ -304,7 +306,7 @@ function getArticles(): array
     Renvoie la liste de tous les articles
 */
 {
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT a.*
     FROM article a");
@@ -333,7 +335,7 @@ function getCarousel(): array
     /*
         Renvoie la liste des 8 dernières créations
     */
-    $mysqli = new mysqli("localhost", "root", "", "la_couture_de_cp");
+    $mysqli = Database::connexion();
 
     $stmt = $mysqli->prepare("SELECT c.*, ca.nom as nom_categorie
     FROM creation c
@@ -361,4 +363,16 @@ function getCarousel(): array
     $mysqli->close();
 
     return $creations;
+}
+
+function getQueryWithoutIdPage(): string
+{
+    $query = "";
+    foreach ($_GET as $key => $value) {
+        if ($key == "id_page") {
+            continue;
+        }
+        $query .= "&" . ($key) . "=" . $value;
+    }
+    return $query;
 }

@@ -42,12 +42,12 @@ if (count($_GET) > 1) {
 }
 
 if(count($creations)%18==0){
-    $nbr_page=count($creations)/18;
+    $nbr_page_total=count($creations)/18;
 }
 else{
-    $nbr_page=intval(count($creations)/18) + 1;
+    $nbr_page_total=intval(count($creations)/18) + 1;
 }
-if ($nbr_page<$id_page) {
+if ($nbr_page_total<$id_page) {
     header("Location: creations.php?id_page=1");
     exit;
 }
