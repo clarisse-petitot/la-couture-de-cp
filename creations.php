@@ -16,6 +16,7 @@ $alltissus = getAllTissus();
 $categories = getCategories();
 $filtres = getFiltres();
 $vendre = false;
+$page = 'creations.php';
 
 if (count($_GET) > 1) {
     foreach ($creations as $key => $creation) {
@@ -32,16 +33,16 @@ if (count($_GET) > 1) {
             if (!$tag_in) {
                 unset($creations[$key]);
             }
-            if (count($filtres["tissus"]) != 0) {
-                $tissu_in = false;
-                foreach ($creation->getTissus() as $tissu) {
-                    if (in_array($tissu, $filtres["tissus"])) {
-                        $tissu_in = true;
-                    }
+        }
+        if (count($filtres["tissus"]) != 0) {
+            $tissu_in = false;
+            foreach ($creation->getTissus() as $tissu) {
+                if (in_array($tissu, $filtres["tissus"])) {
+                    $tissu_in = true;
                 }
-                if (!$tissu_in) {
-                    unset($creations[$key]);
-                }
+            }
+            if (!$tissu_in) {
+                unset($creations[$key]);
             }
         }
     }
