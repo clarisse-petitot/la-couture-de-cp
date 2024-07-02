@@ -19,15 +19,23 @@ $vendre = false;
 
 if (count($_GET) > 1) {
     foreach ($creations as $key => $creation) {
-        if (!in_array($creation->getCategorie(), $filtres["categories"])) {
-            $tag_in = false;
+        if (count($filtres["categories"])!=0 and !in_array($creation->getCategorie(), $filtres["categories"])) {
+            unset($creations[$key]);
+        }
+            if (count($filtres["tags"])!=0)
+            {
+                $tag_in = false;
             foreach ($creation->getTags() as $tag) {
                 if (in_array($tag, $filtres["tags"])) {
                     $tag_in = true;
                 }
             }
-            if (!$tag_in) {
-                $tissu_in = false;
+            if(!$tag_in){
+                unset($creations[$key]);
+            }
+                if(count($filtres["tissus"])!=0)
+                {
+                    $tissu_in = false;
                 foreach ($creation->getTissus() as $tissu) {
                     if (in_array($tissu, $filtres["tissus"])) {
                         $tissu_in = true;
@@ -36,10 +44,10 @@ if (count($_GET) > 1) {
                 if (!$tissu_in) {
                     unset($creations[$key]);
                 }
+                }
             }
         }
     }
-}
 
 if(count($creations)%18==0){
     $nbr_page_total=count($creations)/18;
@@ -47,7 +55,7 @@ if(count($creations)%18==0){
 else{
     $nbr_page_total=intval(count($creations)/18) + 1;
 }
-if ($nbr_page_total<$id_page) {
+if ($nbr_page_total<$id_page-1) {
     header("Location: creations.php?id_page=1");
     exit;
 }
@@ -80,8 +88,14 @@ $creations=array_slice($creations, 18*($id_page-1),18);
     <?php
     require './components/navbar.php';
     require './components/filters.php';
-    require './components/cards.php';
-    require './components/pagination.php';
+    if($nbr_page_total==0)
+    {
+        require './components/error.php';
+    }
+    else{
+        require './components/cards.php';
+        require './components/pagination.php';
+    }
     require './components/footer.php';
     ?>
 
