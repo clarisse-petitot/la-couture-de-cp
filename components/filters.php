@@ -67,7 +67,7 @@
                     foreach ($categories as $categorie) {
                     ?>
                         <div class="flex md:justify-center md:items-center items-center justify-start">
-                            <input class="w-4 h-4 mr-2" type="checkbox" value="true" id="categorie-<?= $categorie->getIdCategorie() ?>" name="categorie-<?= $categorie->getIdCategorie() ?>" <?php if (in_array($categorie, $filtres["categories"])) { ?>checked<?php } ?> />
+                            <input class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" type="checkbox" value="true" id="categorie-<?= $categorie->getIdCategorie() ?>" name="categorie-<?= $categorie->getIdCategorie() ?>" <?php if (in_array($categorie, $filtres["categories"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
                                     <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="categorie-<?= $categorie->getIdCategorie() ?>"><?= $categorie->getNom() ?></label>
@@ -98,7 +98,7 @@
                     foreach ($alltags as $tag) {
                     ?>
                         <div class="flex md:justify-center md:items-center items-center justify-start">
-                            <input class="w-4 h-4 mr-2" type="checkbox" id="tag-<?= $tag->getIdTag() ?>" name="tag-<?= $tag->getIdTag() ?>" <?php if (in_array($tag, $filtres["tags"])) { ?>checked<?php } ?> />
+                            <input class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" type="checkbox" id="tag-<?= $tag->getIdTag() ?>" name="tag-<?= $tag->getIdTag() ?>" <?php if (in_array($tag, $filtres["tags"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
                                     <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tag-<?= $tag->getIdTag() ?>"><?= $tag->getNom() ?></label>
@@ -132,7 +132,7 @@
                     foreach ($alltissus as $tissu) {
                     ?>
                         <div class="flex md:justify-center md:items-center items-center justify-start">
-                            <input class="w-4 h-4 mr-2" type="checkbox" id="tissu-<?= $tissu->getIdTissu() ?>" name="tissu-<?= $tissu->getIdTissu() ?>" <?php if (in_array($tissu, $filtres["tissus"])) { ?>checked<?php } ?> />
+                            <input type="checkbox" class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" id="tissu-<?= $tissu->getIdTissu() ?>" name="tissu-<?= $tissu->getIdTissu() ?>" <?php if (in_array($tissu, $filtres["tissus"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
                                     <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tissu-<?= $tissu->getIdTissu() ?>"><?= $tissu->getNom() ?></label>
