@@ -30,7 +30,7 @@ $articles = getArticles();
     require './components/navbar.php';
     ?>
 
-    <section class="text-gray-600 body-font overflow-hidden">
+    <section class="text-gray-600 body-font overflow-hidden pb-20">
     <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:py-8 lg:px-20 md:px-6 py-8 px-4">Mes Articles</h2>
         <div class="container px-5 py-5 mx-auto">
             <div class="-my-8 divide-y-2 divide-gray-100">
@@ -38,18 +38,23 @@ $articles = getArticles();
                 <?php
                 foreach ($articles as $article) {
                 ?>
-                    <a href="<?= $article->getCheminPage() ?>">
+                 <div class="bg-black/[.15] rounded-md">
+                    <a href="./articles/<?= $article->getIdArticle() ?>.php">
                         <div class="py-8 flex flex-wrap md:flex-nowrap">
-                            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col  mx-10">
-                                <img  class="rounded-lg w-72" src="article/<?= $article->getIdArticle() ?>.png" alt="image représentant l'article en question">
+                            <div class="w-80 flex-shrink-0 flex flex-col mx-10">
+                                <img  class="rounded-lg" src="img/articles/<?= $article->getIdArticle() ?>.png" alt="image représentant l'article en question">
                                 <span class="mt-1 text-gray-500 text-sm"><?= $article->getDatePub() ?></span>
                             </div>
-                            <div class="md:flex-grow ml-5">
-                                <h2 class="text-xl font-normal text-gray-900 title-font mb-2"><?= $article->getTitre() ?></h2>
+                            <div class="md:flex-grow mx-5 pt-5 md:pt-0">
+                                <h2 class="text-xl font-normal text-gray-900 title-font"><?= $article->getTitre() ?></h2>
                                 <p class="leading-relaxed text-justify"><?= $article->getTexte() ?></p>
                             </div>
                         </div>
                     </a>
+                    </div>
+            </div>
+        </div>
+    </section>
                 <?php
                 }
     require './components/footer.php';

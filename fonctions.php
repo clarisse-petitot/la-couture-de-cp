@@ -320,7 +320,6 @@ function getArticles(): array
             $ligne["id_article"],
             $ligne["titre"],
             $ligne["date_pub"],
-            new SplFileInfo($ligne["chemin_page"]),
             $ligne["description"]
         );
     }

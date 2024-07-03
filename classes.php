@@ -147,15 +147,13 @@ class Article
     private int $id_article;
     private string $titre;
     private string $date_pub;
-    private SplFileInfo $chemin_page;
     private string $texte;
 
-    public function __construct(int $id_article, string $titre, string $date_pub, SplFileInfo $chemin_page, string $texte)
+    public function __construct(int $id_article, string $titre, string $date_pub, string $texte)
     {
         $this->id_article=$id_article;
         $this->titre=$titre;
         $this->date_pub=$date_pub;
-        $this->chemin_page=$chemin_page;
         $this->texte=$texte;
     }
 
@@ -170,10 +168,6 @@ class Article
     public function getDatePub(): string
     {
         return $this->date_pub;
-    }
-    public function getCheminPage(): SplFileInfo
-    {
-        return $this->chemin_page;
     }
     public function getTexte(): string
     {
