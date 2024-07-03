@@ -54,19 +54,16 @@ $prix = getPrix($creation);
                             <?php
                             for ($i = 0; $i < count($creation->getTags()); $i++) {
                             ?>
-                                <label>
-                                    <input class="sr-only peer" name="size" type="radio" value="xs" />
-                                    <div class="w-full h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
+                                    <div class="w-full h-9 rounded-full flex items-center justify-center bg-pink-200 px-2 my-2 text-sm">
                                         <?= $creation->getTags()[$i]->getNom() ?>
                                     </div>
-                                </label>
                             <?php
                             }
                             ?>
                         </span>
                     </div>
 
-                    <p class="leading-relaxed"><?= $creation->getDescription() ?></p>
+                    <p class="leading-relaxed text-base"><?= $creation->getDescription() ?></p>
                     <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-300 mb-5">
                         <div class="flex ml-6 items-center">
                             <span class="mr-3">Categorie</span>
