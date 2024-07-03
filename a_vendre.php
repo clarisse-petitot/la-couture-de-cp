@@ -20,7 +20,7 @@ $page = 'a_vendre.php';
 
 if (count($_GET) > 0) {
     foreach ($creations as $key => $creation) {
-        if (getPrix($creation) == 0) {
+        if (getPrix($creation) == []) {
             unset($creations[$key]);
         } else {
             if (count($filtres["categories"]) != 0 and !in_array($creation->getCategorie(), $filtres["categories"])) {

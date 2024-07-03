@@ -111,11 +111,11 @@ $prix = getPrix($creation);
                         </div>
                     </div>
                     <?php
-                    if ($prix > 0) {
+                    if ($prix != []) {
                     ?>
-                        <div class="flex">
-                            <span class="title-font font-medium text-2xl text-gray-900"><?= $prix ?>€</span>
-                            <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Acheter</button>
+                        <div class="flex justify-between">
+                            <span class="title-font font-medium text-2xl text-gray-900"><?= $prix[0] ?>€</span>
+                            <a href="<?= $prix[1] ?>" target="_blank"><button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Acheter</button></a>
                         </div>
                     <?php
                     }

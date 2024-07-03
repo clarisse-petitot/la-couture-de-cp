@@ -97,14 +97,14 @@ function getTissus(int $id_creation): array
     return $liste_fin;
 }
 
-function getPrix(Creation $creation): int
+function getPrix(Creation $creation): array
 /*
     Renvoie le prix d'une creation
 */
 {
     $mysqli = Database::connexion();
 
-    $stmt = $mysqli->prepare("SELECT prix
+    $stmt = $mysqli->prepare("SELECT prix, url_vinted
     FROM offre
     WHERE id_creation = ?");
     $id = $creation->getIdCreation();
@@ -112,8 +112,8 @@ function getPrix(Creation $creation): int
     $stmt->execute();
     $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-    if (count($res) == 0) return 0;
-    else return $res[0]["prix"];
+    if (count($res) == 0) return [];
+    else return [$res[0]["prix"],$res[0]["url_vinted"]];
 }
 
 function getCreations(): array
