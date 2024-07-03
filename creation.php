@@ -54,7 +54,7 @@ $prix = getPrix($creation);
                             <?php
                             for ($i = 0; $i < count($creation->getTags()); $i++) {
                             ?>
-                                    <div class="w-full h-9 rounded-full flex items-center justify-center bg-pink-200 px-2 my-2 text-sm">
+                                    <div class="w-full h-7 rounded-full flex items-center justify-center bg-pink-200 px-3 my-2 text-sm">
                                         <?= $creation->getTags()[$i]->getNom() ?>
                                     </div>
                             <?php
