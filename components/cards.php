@@ -7,7 +7,7 @@
                     foreach ($creations as $creation) {
                     ?>
                         <a href="creation.php?id_creation=<?= $creation->getIdCreation() ?>">
-                            <li class="inline-flex flex-col text-center w-auto p-3 bg-black/25 m-3 rounded-md ">
+                            <li class="inline-flex flex-col text-center w-auto p-3 bg-black/[.15] m-3 rounded-md ">
                                 <div class="group relative">
                                     <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
                                     <img src="img/creations/resized/<?= $creation->getIdCreation() ?>_low.png" alt="image représentant : <?= $creation->getNom() ?>" class="h-full w-full object-cover object-center group-hover:opacity-75">

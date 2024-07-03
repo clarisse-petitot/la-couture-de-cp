@@ -94,7 +94,7 @@
     <!-- Apply Filter Button (Large Screen) -->
 
     <div class="hidden md:block absolute right-20 bottom-20 md:py-5 lg:px-10 md:px-5 py-5 px-4">
-                <button type="submit" id='submit' name='submit' class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-4 px-6 text-white bg-black">Envoyer</button>
+                <button type="submit" id='submit' name='submit' class="h-[48px] w-[120px] rounded-md bg-pink-500 text-white cursor-pointer">Envoyer</button>
             </div>
 
             <!-- Apply Filter Button (Table or lower Screen) -->

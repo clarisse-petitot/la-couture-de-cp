@@ -115,7 +115,7 @@ $prix = getPrix($creation);
                     ?>
                         <div class="flex justify-between">
                             <span class="title-font font-medium text-2xl text-gray-900"><?= $prix[0] ?>€</span>
-                            <a href="<?= $prix[1] ?>" target="_blank"><button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Acheter</button></a>
+                            <a href="<?= $prix[1] ?>" target="_blank"><button class="h-[48px] w-[120px] rounded-md bg-pink-500 text-white cursor-pointer ">Acheter</button></a>
                         </div>
                     <?php
                     }

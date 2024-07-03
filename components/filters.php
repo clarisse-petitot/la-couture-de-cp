@@ -4,7 +4,7 @@
         <div class="flex justify-between items-center">
             <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Mes Créations <?php if ($vendre) { ?> à vendre <?php } ?></h2>
             <!-- filters Button (md and plus Screen) -->
-            <button onclick="showFilters()" class="cursor-pointer dark:bg-white dark:text-gray-800 text-white dark:hover:bg-gray-100 sm:flex hidden hover:bg-gray-700 focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-3 px-5 bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center">
+            <button onclick="showFilters()" class="cursor-pointer h-[48px] w-[120px] rounded-md bg-pink-500 text-white cursor-pointer flex justify-center items-center">
                 <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 12C7.10457 12 8 11.1046 8 10C8 8.89543 7.10457 8 6 8C4.89543 8 4 8.89543 4 10C4 11.1046 4.89543 12 6 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M6 4V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -147,29 +147,29 @@
 
             <!-- Apply Filter Button (Large Screen) -->
 
-            <div class="hidden md:block absolute right-40 bottom-0 md:py-5 lg:px-10 md:px-5 py-5 px-4">
-                <input type="submit" value="Valider" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-4 px-6 text-white bg-gray-800">
+            <div class="hidden md:block absolute right-0 bottom-0 md:py-5 lg:px-10 md:px-5 py-5 px-4">
+                <input type="submit" value="Valider" class="h-[48px] w-[120px] rounded-md bg-pink-500 text-white cursor-pointer">
+            </div>
+            <!-- Reset Filter Button (Table or lower Screen) -->
+    
+            <div class="block md:hidden w-full mt-5">
+                <a href="/creations.php"><button type="button" class="w-full text-base leading-4 font-normal py-3 px-5 bg-gray-100 text-pink-500 border border-2 border-pink-500">Réinitialiser</button></a>
             </div>
 
             <!-- Apply Filter Button (Table or lower Screen) -->
 
             <div class="block md:hidden w-full mt-5">
-                <input type="submit" value="Valider" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-3 px-5 text-white bg-gray-800">
+                <input type="submit" value="Valider" class="w-full text-base leading-4 font-normal py-3 px-5 text-white bg-pink-500">
             </div>
 
             <input type="hidden" value="1" name="id_page">
         </form>
 
         <!-- Reset Filter Button (Large Screen) -->
-        <div class="hidden md:block absolute right-0 bottom-0 md:py-5 lg:px-10 md:px-5 py-5 px-4">
-            <a href="/creations.php"><button type="button" class="hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-4 px-6 text-white bg-gray-800">Réinitialiser</button></a>
+        <div class="hidden md:block absolute right-[135px] bottom-0 md:py-5 lg:px-10 md:px-5 py-5 px-4">
+            <a href="/creations.php"><button type="button" class="h-[48px] w-[110px] border border-2 rounded-md border-pink-400 bg-gray-100 text-pink-500 ">Réinitialiser</button></a>
         </div>
 
-        <!-- Reset Filter Button (Table or lower Screen) -->
-
-        <div class="block md:hidden w-full mt-5">
-            <a href="/creations.php"><button type="button" class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-3 px-5 text-white bg-gray-800">Réinitialiser</button></a>
-        </div>
     </div>
 </div>
 <style>

@@ -91,7 +91,7 @@ $creations = array_slice($creations, 18 * ($id_page - 1), 18);
     if ($nbr_page_total == 0) {
         require './components/error.php';
     } else {
-        require './components/cards_vendre.php';
+        require './components/cards.php';
         require './components/pagination.php';
     }
     require './components/footer.php';

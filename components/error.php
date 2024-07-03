@@ -4,7 +4,7 @@
         <div class="w-full md:w-1/2 justify-center content-center">
             <div class="mb-10 md:mb-20 text-gray-600 font-light">
                 <h1 class="font-black uppercase text-4xl lg:text-6xl text-pink-500 mb-10">Oups !</h1>
-                <p class="text-lg">Aucunes créations ne correspond à ces filtres.</p>
+                <p class="text-lg">Aucune création ne correspond à ces filtres.</p>
                 <p class="text-lg">Appuie sur retour pour voir toutes les créations.</p>
             </div>
             <div class="mb-20 md:mb-0">
