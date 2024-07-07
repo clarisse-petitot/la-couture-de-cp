@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 03 juil. 2024 à 00:28
+-- Généré le : dim. 07 juil. 2024 à 16:38
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -31,8 +31,6 @@ CREATE TABLE `article` (
   `id_article` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `date_pub` date NOT NULL,
-  `id_image` int(11) NOT NULL,
-  `chemin_page` varchar(512) NOT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -40,8 +38,9 @@ CREATE TABLE `article` (
 -- Déchargement des données de la table `article`
 --
 
-INSERT INTO `article` (`id_article`, `titre`, `date_pub`, `id_image`, `chemin_page`, `description`) VALUES
-(1, 'Mon voyage à Paris', '2022-07-16', 3, 'voyage_paris.html', 'En Juillet 2022, je suis partie deux semaines à Paris afin de faire un stage d\'été à l\'IFM (l\'Institut Français de la Mode)');
+INSERT INTO `article` (`id_article`, `titre`, `date_pub`, `description`) VALUES
+(2, 'Mon Stage à l\'IFM', '2022-07-16', 'En Juillet 2022, je suis partie deux semaines à Paris afin de faire un stage d\'été à l\'IFM (l\'Institut Français de la Mode)'),
+(3, 'Mon Stage au Grand Théâtre de Tours', '2020-02-15', 'En Février 2020, j\'ai fait mon stage de 3ème au Grand Théâtre de Tours avec la cheffe costumière.');
 
 -- --------------------------------------------------------
 
@@ -87,7 +86,7 @@ INSERT INTO `creation` (`id_creation`, `nom`, `description`, `taille`, `tps_crea
 (2, 'Robe Lune', 'Robe longue bleu marine à manches longue avec un style \"princesse\"', '38', 10, '3m', 1),
 (3, 'Robe Bridgette', 'Robe chemise bleu à motifs avec des manches chauve-souris', '44', 10, '3m', 1),
 (4, 'Combishort', 'Combishort avec un short noir et un haut blanc à motifs de plumes noires', '38', 12, '2m', 1),
-(5, 'Veste', 'Veste\r\nVeste noire à broderies au fil noir sur l\'endroit du tissu avec un tissu jaune sur l\'envers', '44', 14, '2.5m', 1),
+(5, 'Veste', 'Veste noire à broderies au fil noir sur l\'endroit du tissu avec un tissu jaune sur l\'envers', '44', 14, '2.5m', 1),
 (6, 'Haut de la robe Eve', 'Cache-cœur à petits carreaux bleu inspiré du haut de la robe Eve à manches papillons', '40', 7, '2m', 1),
 (7, 'Chemise Sandalette', 'Chemise bleu turquoise fleurie sans manches', '44', 4, '1m', 1),
 (8, 'T-shirt twisté', 'T-shirt en jersey blanc à motifs de feuilles rouges avec des manches twistées', '38', 4, '1.5m', 1),
@@ -216,23 +215,24 @@ INSERT INTO `creation` (`id_creation`, `nom`, `description`, `taille`, `tps_crea
 CREATE TABLE `offre` (
   `id_offre` int(11) NOT NULL,
   `prix` int(11) NOT NULL,
-  `id_creation` int(11) NOT NULL
+  `id_creation` int(11) NOT NULL,
+  `url_vinted` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `offre`
 --
 
-INSERT INTO `offre` (`id_offre`, `prix`, `id_creation`) VALUES
-(2, 35, 19),
-(3, 30, 85),
-(4, 30, 24),
-(5, 45, 25),
-(6, 40, 28),
-(7, 30, 30),
-(8, 30, 92),
-(9, 30, 102),
-(10, 20, 115);
+INSERT INTO `offre` (`id_offre`, `prix`, `id_creation`, `url_vinted`) VALUES
+(2, 35, 19, 'https://www.vinted.fr/items/4718451730-robe-a-emmanchures-americaines'),
+(3, 30, 85, 'https://www.vinted.fr/items/4718612218-jupe-patinage'),
+(4, 30, 24, 'https://www.vinted.fr/items/4718691595-jupe-portefeuille'),
+(5, 45, 25, 'https://www.vinted.fr/items/4718680715-cape-chaude'),
+(6, 40, 28, 'https://www.vinted.fr/items/4718659552-robe-de-golf'),
+(7, 30, 30, 'https://www.vinted.fr/items/4718642275-chemise'),
+(8, 30, 92, 'https://www.vinted.fr/items/4718596166-jupe-croisee-gilberte'),
+(9, 30, 102, 'https://www.vinted.fr/items/4718556791-chemisier'),
+(10, 20, 115, 'https://www.vinted.fr/items/4718507957-short-de-sport');
 
 -- --------------------------------------------------------
 
@@ -374,6 +374,7 @@ INSERT INTO `realiser_en` (`id_creation`, `id_tissu`) VALUES
 (113, 1),
 (114, 12),
 (115, 4),
+(115, 12),
 (116, 2),
 (117, 4),
 (118, 4),
@@ -401,8 +402,6 @@ CREATE TABLE `tag` (
 
 INSERT INTO `tag` (`id_tag`, `nom`, `couleur`) VALUES
 (1, 'Robe', 'fcba03'),
-(2, 'Hiver', '4d6b87'),
-(3, 'Eté', ''),
 (4, 'Haut', ''),
 (5, 'Pantalon', ''),
 (6, 'Short', ''),
@@ -410,7 +409,6 @@ INSERT INTO `tag` (`id_tag`, `nom`, `couleur`) VALUES
 (8, 'Combinaison', ''),
 (9, 'Veste', ''),
 (10, 'Broderie', ''),
-(11, 'Trousse', ''),
 (12, 'Pochette', '');
 
 -- --------------------------------------------------------
@@ -429,30 +427,20 @@ CREATE TABLE `tagger` (
 --
 
 INSERT INTO `tagger` (`id_creation`, `id_tag`) VALUES
-(2, 2),
 (2, 1),
 (3, 1),
-(3, 2),
 (4, 8),
-(4, 3),
 (5, 9),
-(5, 2),
 (6, 4),
-(6, 3),
 (7, 4),
-(7, 3),
 (8, 4),
 (9, 4),
 (10, 8),
-(10, 2),
 (11, 7),
 (12, 4),
 (13, 1),
-(13, 2),
 (14, 6),
-(14, 3),
 (15, 1),
-(15, 3),
 (16, 7),
 (17, 1),
 (18, 8),
@@ -610,8 +598,8 @@ ALTER TABLE `tag`
 -- Index pour la table `tagger`
 --
 ALTER TABLE `tagger`
-  ADD KEY `id_creation` (`id_creation`),
-  ADD KEY `id_tag` (`id_tag`);
+  ADD KEY `tagger_ibfk_1` (`id_creation`),
+  ADD KEY `tagger_ibfk_2` (`id_tag`);
 
 --
 -- Index pour la table `tissu`
@@ -627,7 +615,7 @@ ALTER TABLE `tissu`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
@@ -664,12 +652,6 @@ ALTER TABLE `tissu`
 --
 
 --
--- Contraintes pour la table `article`
---
-ALTER TABLE `article`
-  ADD CONSTRAINT `article_ibfk_1` FOREIGN KEY (`id_image`) REFERENCES `image` (`id_image`);
-
---
 -- Contraintes pour la table `creation`
 --
 ALTER TABLE `creation`
@@ -692,8 +674,8 @@ ALTER TABLE `realiser_en`
 -- Contraintes pour la table `tagger`
 --
 ALTER TABLE `tagger`
-  ADD CONSTRAINT `tagger_ibfk_1` FOREIGN KEY (`id_creation`) REFERENCES `creation` (`id_creation`),
-  ADD CONSTRAINT `tagger_ibfk_2` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`);
+  ADD CONSTRAINT `tagger_ibfk_1` FOREIGN KEY (`id_creation`) REFERENCES `creation` (`id_creation`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tagger_ibfk_2` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
