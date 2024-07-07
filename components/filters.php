@@ -4,7 +4,7 @@
         <div class="flex justify-between items-center">
             <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Mes Créations <?php if ($vendre) { ?> à vendre <?php } ?></h2>
             <!-- filters Button (md and plus Screen) -->
-            <button onclick="showFilters()" class="cursor-pointer h-[48px] w-[120px] rounded-md bg-pink-500 text-white cursor-pointer flex justify-center items-center">
+            <button onclick="showFilters()" class="sm:flex hidden cursor-pointer h-[48px] w-[120px] rounded-md bg-pink-500 text-white cursor-pointer justify-center items-center">
                 <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 12C7.10457 12 8 11.1046 8 10C8 8.89543 7.10457 8 6 8C4.89543 8 4 8.89543 4 10C4 11.1046 4.89543 12 6 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M6 4V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

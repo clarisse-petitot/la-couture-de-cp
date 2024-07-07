@@ -24,26 +24,24 @@
     <?php
     require './components/navbar.php';
     ?>
-    <div class="min-w-screen flex overflow-hidden sm:px-5 md:px-20 lg:px-36 py-16 md:pb-28 md:pt-32">
-    <div class="flex-1 min-h-full min-w-full rounded-3xl text-gray-800 md:flex items-center text-center justify-center">
-        <div class="w-full md:w-1/2 justify-center content-center">
-            <div class="mb-10 md:mb-20 font-light">
-                <h1 class="font-bold text-6xl lg:text-7xl font-sans text-black mb-10 px-10 md:px-0">La Couture de CP</h1>
+    <div class="min-w-screen flex overflow-hidden sm:px-5 md:px-20 lg:px-36 py-24 md:pb-32 md:pt-32">
+        <div class="flex-1 min-h-full min-w-full rounded-3xl text-gray-800 md:flex items-center text-center justify-center">
+            <div class="w-full md:w-1/2 justify-center content-center flex">
+                <h1 class="font-bold text-6xl lg:text-7xl font-sans text-black px-10 md:px-0">La Couture de CP</h1>
+            </div>
+            <div class="w-full md:w-1/2 text-center md:px-10 flex items-center justify-center">
+                <img src="img/logo.png" height="256" alt="La couture de CP logo" />
             </div>
         </div>
-        <div class="w-full md:w-1/2 text-center md:px-10 flex items-center justify-center">
-            <img src="logo.svg" class="h-64" alt="La couture de CP logo" />
-            </div>
     </div>
-</div>
 
-<section class="text-gray-600 body-font overflow-hidden pb-24">
-    <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:pt-16 lg:px-20 md:px-6 px-4">Mes dernières créations</h2>
+    <section class="text-gray-600 body-font overflow-hidden pb-24">
+        <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:pt-16 lg:px-20 md:px-6 px-4">Mes dernières créations</h2>
+        <?php
+        require './components/carousel.php';
+        ?>
+    </section>
     <?php
-    require './components/carousel.php';
-?>
-</section>
-<?php
     require './components/footer.php';
     ?>
 

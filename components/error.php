@@ -1,19 +1,18 @@
-<style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
-<div class="min-w-screen flex overflow-hidden sm:px-5 md:px-24 lg:px-48 py-16 ">
-    <div class="flex-1 min-h-full min-w-full rounded-3xl text-gray-800 md:flex items-center text-center justify-center md:text-left">
-        <div class="w-full md:w-1/2 justify-center content-center">
-            <div class="mb-10 md:mb-20 text-gray-600 font-light">
-                <h1 class="font-black uppercase text-4xl lg:text-6xl text-pink-500 mb-10">Oups !</h1>
-                <p class="text-lg">Aucune création ne correspond à ces filtres.</p>
-                <p class="text-lg">Appuie sur retour pour voir toutes les créations.</p>
-            </div>
-            <div class="mb-20 md:mb-0">
-                <a href="/creation.php?id_page=1">
-                <button class="text-xl font-light outline-none focus:outline-none transform transition-all hover:scale-110 text-pink-500 hover:text-pink-600"><i class="mdi mdi-arrow-left mr-2"></i>Retour</button></a>
-            </div>
-        </div>
-        <div class="w-full md:w-1/2 text-center md:px-10 flex items-center justify-center">
-            <img src="logo.svg" class="h-64" alt="La couture de CP logo" />
-            </div>
+<div class="flex flex-col p-10 md:p-0 md:flex-row gap-10 w-full justify-center items-center mt-10 pb-32">
+    <div class="flex flex-col gap-12">
+        <h3 class="font-black text-6xl text-pink-500 uppercase">oups !</h3>
+        <p>
+            Aucune création ne correspond à ces filtres.<br>
+            Appuie sur retour pour voir toutes les créations.
+        </p>
+        <a href="creations.php" class="text-pink-500 flex gap-2 transform transition-all hover:scale-110 hover:text-pink-600 w-fit-content">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+            </svg>
+            <span>Retour</span>
+        </a>
+    </div>
+    <div>
+        <img src="img/logo.png" class="h-48 lg:h-64" alt="logo cp">
     </div>
 </div>
