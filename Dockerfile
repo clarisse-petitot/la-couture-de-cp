@@ -1,6 +1,7 @@
 FROM php:apache
 
 RUN apt-get update && apt-get install -y \
+  && apt install git zip unzip -y \
   && a2enmod rewrite \
   && docker-php-ext-install mysqli \
   && docker-php-ext-install pdo pdo_mysql \
