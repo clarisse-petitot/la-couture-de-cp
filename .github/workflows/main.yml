@@ -1,0 +1,19 @@
+name: deploy to lacouturedecp.fr
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: mise à jour des fichiers PHP sur lacouturedecp.fr
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        script: |
+          cd la-couture-de-cp/
+          docker compose down
+          git pull
+          docker compose up -d
