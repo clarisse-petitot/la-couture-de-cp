@@ -1,7 +1,7 @@
 <form class="px-20 md:px-60 lg:px-72 py-20" method='POST'>
     <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-12">
-            <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Passer une commande</h2>
+            <h2 class="lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Passer une commande</h2>
 
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-4">
@@ -100,7 +100,7 @@
             <!-- Apply Filter Button (Table or lower Screen) -->
 
             <div class="block md:hidden w-full mt-5">
-                <button type="submit" id='submit' name='submit' class="w-full hover:bg-gray-700 dark:bg-white dark:text-gray-800 dark:hover:bg-gray-100 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-3 px-5 text-white bg-black">Envoyer</button>
+                <button type="submit" id='submit' name='submit' class="w-full hover:bg-gray-700 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-3 px-5 text-white bg-black">Envoyer</button>
             </div>
     <?php
     if ($res == "succes"){

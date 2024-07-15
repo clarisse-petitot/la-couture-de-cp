@@ -2,7 +2,7 @@
 
     <div class="md:py-6 lg:px-20 md:px-6 py-5 px-4">
         <div class="flex justify-between items-center">
-            <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Mes Créations <?php if ($vendre) { ?> à vendre <?php } ?></h2>
+            <h2 class="lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">Mes Créations <?php if ($vendre) { ?> à vendre <?php } ?></h2>
             <!-- filters Button (md and plus Screen) -->
             <button onclick="showFilters()" class="sm:flex hidden cursor-pointer h-[48px] w-[120px] rounded-md bg-pink-500 text-white cursor-pointer justify-center items-center">
                 <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@
 
         <!-- Filters Button (Small Screen) -->
 
-        <button onclick="showFilters()" class="cursor-pointer mt-6 block sm:hidden hover:bg-gray-700 focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-2 w-full bg-gray-800 flex text-base leading-4 font-normal text-white dark:text-gray-800 dark:bg-white dark:hover:bg-gray-100 justify-center items-center">
+        <button onclick="showFilters()" class="cursor-pointer mt-6 block sm:hidden hover:bg-gray-700 focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-2 w-full bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center">
             <svg class="mr-2" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 12C7.10457 12 8 11.1046 8 10C8 8.89543 7.10457 8 6 8C4.89543 8 4 8.89543 4 10C4 11.1046 4.89543 12 6 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M6 4V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -38,9 +38,9 @@
         </button>
     </div>
 
-    <div id="filterSection" class="hidden block relative md:py-5 lg:px-20 md:px-6 py-4 px-4 dark:bg-gray-800 w-full">
+    <div id="filterSection" class="hidden block relative md:py-5 lg:px-20 md:px-6 py-4 px-4 w-full">
         <!-- Cross button Code -->
-        <div onclick="closeFilterSection()" class="cursor-pointer text-gray-800 dark:text-white absolute right-0 top-0 md:py-10 lg:px-20 md:px-6 py-9 px-4">
+        <div onclick="closeFilterSection()" class="cursor-pointer text-gray-800 absolute right-0 top-0 md:py-10 lg:px-20 md:px-6 py-9 px-4">
             <svg class="lg:w-5 lg:h-5 w-3 h-3" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25 1L1 25" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M1 1L25 25" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
@@ -50,7 +50,7 @@
         <form action="creations.php">
             <!-- Categorie Section -->
             <div>
-                <div class="flex space-x-2 text-gray-800 dark:text-white">
+                <div class="flex space-x-2 text-gray-800">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="0.8">
                             <path d="M9 4H5C4.44772 4 4 4.44772 4 5V9C4 9.55228 4.44772 10 5 10H9C9.55228 10 10 9.55228 10 9V5C10 4.44772 9.55228 4 9 4Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -70,7 +70,7 @@
                             <input class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" type="checkbox" value="true" id="categorie-<?= $categorie->getIdCategorie() ?>" name="categorie-<?= $categorie->getIdCategorie() ?>" <?php if (in_array($categorie, $filtres["categories"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
-                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="categorie-<?= $categorie->getIdCategorie() ?>"><?= $categorie->getNom() ?></label>
+                                    <label class="mr-2 text-sm leading-3 font-normal text-gray-600" for="categorie-<?= $categorie->getIdCategorie() ?>"><?= $categorie->getNom() ?></label>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
 
             <!-- Tag Section -->
             <div>
-                <div class="flex space-x-2 text-gray-800 dark:text-white ">
+                <div class="flex space-x-2 text-gray-800">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 3H15C14.4696 3 13.9609 3.21071 13.5858 3.58579C13.2107 3.96086 13 4.46957 13 5V17C13 18.0609 13.4214 19.0783 14.1716 19.8284C14.9217 20.5786 15.9391 21 17 21C18.0609 21 19.0783 20.5786 19.8284 19.8284C20.5786 19.0783 21 18.0609 21 17V5C21 4.46957 20.7893 3.96086 20.4142 3.58579C20.0391 3.21071 19.5304 3 19 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M12.9994 7.35022L10.9994 5.35022C10.6243 4.97528 10.1157 4.76465 9.58539 4.76465C9.05506 4.76465 8.54644 4.97528 8.17139 5.35022L5.34339 8.17822C4.96844 8.55328 4.75781 9.06189 4.75781 9.59222C4.75781 10.1225 4.96844 10.6312 5.34339 11.0062L14.3434 20.0062" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -101,7 +101,7 @@
                             <input class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" type="checkbox" id="tag-<?= $tag->getIdTag() ?>" name="tag-<?= $tag->getIdTag() ?>" <?php if (in_array($tag, $filtres["tags"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
-                                    <label class="text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tag-<?= $tag->getIdTag() ?>"><?= $tag->getNom() ?></label>
+                                    <label class="text-sm leading-3 font-normal text-gray-600" for="tag-<?= $tag->getIdTag() ?>"><?= $tag->getNom() ?></label>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
 
             <!-- Tissu Section -->
             <div>
-                <div class="flex space-x-2 text-gray-800 dark:text-white">
+                <div class="flex space-x-2 text-gray-800">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 5H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M12 7L14 5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -135,7 +135,7 @@
                             <input type="checkbox" class="w-4 h-4 mr-2 text-pink-500 focus:ring-0" id="tissu-<?= $tissu->getIdTissu() ?>" name="tissu-<?= $tissu->getIdTissu() ?>" <?php if (in_array($tissu, $filtres["tissus"])) { ?>checked<?php } ?> />
                             <div class="inline-block">
                                 <div class="flex space-x-6 justify-center items-center">
-                                    <label class="text-sm leading-3 font-normal text-gray-600 dark:text-gray-300" for="tissu-<?= $tissu->getIdTissu() ?>"><?= $tissu->getNom() ?></label>
+                                    <label class="text-sm leading-3 font-normal text-gray-600" for="tissu-<?= $tissu->getIdTissu() ?>"><?= $tissu->getNom() ?></label>
                                 </div>
                             </div>
                         </div>

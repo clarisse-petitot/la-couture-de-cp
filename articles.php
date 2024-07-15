@@ -31,7 +31,7 @@ $articles = getArticles();
     ?>
 
     <section class="text-gray-600 body-font overflow-hidden pb-20">
-    <h2 class="lg:text-4xl dark:text-white text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:py-8 lg:px-20 md:px-6 py-8 px-4 mb-10">Mes Articles</h2>
+    <h2 class="lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:py-8 lg:px-20 md:px-6 py-8 px-4 mb-10">Mes Articles</h2>
         <div class="container px-5 py-5 mx-auto">
             <div class="-my-8 divide-y-2 divide-gray-100">
 
