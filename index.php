@@ -27,15 +27,15 @@
     <div class="min-w-screen flex overflow-hidden sm:px-5 md:px-20 lg:px-36 py-24 md:pb-32 md:pt-32">
         <div class="flex-1 min-h-full min-w-full rounded-3xl text-gray-800 md:flex items-center text-center justify-center">
             <div class="w-full md:w-1/2 justify-center content-center flex">
-                <h1 class="font-bold text-6xl lg:text-7xl font-sans text-black px-10 md:px-0">La Couture de CP</h1>
+                <h1 class="font-bold text-6xl lg:text-7xl font-sans text-black p-10 md:p-0">La Couture de CP</h1>
             </div>
-            <div class="w-full md:w-1/2 text-center md:px-10 flex items-center justify-center">
+            <div class="w-full md:w-1/2 text-center px-10 flex items-center justify-center">
                 <img src="img/logo.png" height="256" alt="La couture de CP logo" />
             </div>
         </div>
     </div>
 
-    <section class="text-gray-600 body-font overflow-hidden pb-24">
+    <section class="text-gray-600 body-font overflow-hidden pb-24 hidden sm:flex">
         <h2 class="lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:pt-16 lg:px-20 md:px-6 px-4">Mes dernières créations</h2>
         <?php
         require './components/carousel.php';
