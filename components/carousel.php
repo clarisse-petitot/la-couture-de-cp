@@ -7,7 +7,7 @@ $carousel = getCarousel()
 
 ?>
 
-<section class="hidden sm:splide mt-16">
+<section class="hidden splide sm:flex mt-16">
     <div class="splide__track">
         <ul class="splide__list">
             <?php
