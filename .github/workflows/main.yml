@@ -13,7 +13,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         script: |
-          cd la-couture-de-cp/
+          cd /docker/la-couture-de-cp
           docker compose down
           git pull
           docker compose up -d
