@@ -7,7 +7,7 @@ $carousel = getCarousel()
 
 ?>
 
-<section class="splide mt-16">
+<section class="hidden sm:splide mt-16">
     <div class="splide__track">
         <ul class="splide__list">
             <?php
@@ -16,7 +16,7 @@ $carousel = getCarousel()
             ?>
             <li class="splide__slide">
                 <a href="creation.php?id_creation=<?= $creation->getIdCreation() ?>">
-                <div class="relative h-[100px] w-[100px] sm:h-[150px] sm:w-[150px] md:h-[200px] md:w-[200px] lg:h-[300px] lg:w-[300px] cursor-pointer rounded-md group-hover:opacity-75" style="background-image:linear-gradient(0deg,rgba(255,255,255,.6)0%,rgba(0,212,255,0) 25%), url('img/creations/resized/<?= $creation->getIdCreation() ?>_low.png');background-size:cover;">
+                <div class="relative h-[200px] w-[200px] lg:h-[300px] lg:w-[300px] cursor-pointer rounded-md group-hover:opacity-75" style="background-image:linear-gradient(0deg,rgba(255,255,255,.6)0%,rgba(0,212,255,0) 25%), url('img/creations/resized/<?= $creation->getIdCreation() ?>_low.png');background-size:cover;">
                     <span class="absolute bottom-2 left-3 text-black/75 text-xs sm:text-base md:text-lg lg:text-lg font-semibold"><?=$creation->getNom()?></span>
                 </div>
                 </a>
