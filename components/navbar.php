@@ -20,9 +20,9 @@
                 <li>
                     <a href="creations.php?id_page=1" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-500 md:p-0">Creations</a>
                 </li>
-                <li>
+                <!--<li>
                     <a href="articles.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-500 md:p-0">Articles</a>
-                </li>
+                </li>-->
                 <li>
                     <a href="a_vendre.php" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-500 md:p-0 ">A vendre</a>
                 </li>
