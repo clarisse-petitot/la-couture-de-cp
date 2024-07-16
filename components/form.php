@@ -100,7 +100,7 @@
             <!-- Apply Filter Button (Table or lower Screen) -->
 
             <div class="block md:hidden w-full mt-5">
-                <button type="submit" id='submit' name='submit' class="w-full hover:bg-gray-700 focus:ring focus:ring-offset-2 focus:ring-gray-800 text-base leading-4 font-normal py-3 px-5 text-white bg-black">Envoyer</button>
+                <button type="submit" id='submit' name='submit' class="w-full text-base leading-4 font-normal py-3 px-5 text-white bg-pink-500">Envoyer</button>
             </div>
     <?php
     if ($res == "succes"){
