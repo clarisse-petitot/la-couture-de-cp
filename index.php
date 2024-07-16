@@ -35,8 +35,8 @@
         </div>
     </div>
 
-    <section class="text-gray-600 body-font overflow-hidden pb-24 hidden sm:flex">
-        <h2 class="lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:pt-16 lg:px-20 md:px-6 px-4">Mes dernières créations</h2>
+    <section class="text-gray-600 body-font overflow-hidden pb-24">
+        <h2 class="lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold md:pt-16 lg:px-20 md:px-6 px-4 hidden sm:flex">Mes dernières créations</h2>
         <?php
         require './components/carousel.php';
         ?>
