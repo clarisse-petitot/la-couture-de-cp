@@ -1,4 +1,4 @@
-<nav class="border-gray-200 mt-3 sticky top-0 z-10 bg-pink-100 w-full">
+<nav class="border-gray-200 sticky top-0 z-10 bg-pink-100 w-full">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 pb-2">
         <a href="/index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="img/logo.png" class="h-12" alt="La couture de CP logo" />
