@@ -21,7 +21,7 @@
 
 <body class="min-h-full relative">
     <?php
-    require './components/navbar.php';
+    require 'navbar.php';
     ?>
     <div class="flex flex-col p-10 md:p-0 md:flex-row gap-10 w-full justify-center items-center mt-10 pb-32">
         <div class="flex flex-col gap-12">
@@ -41,7 +41,7 @@
         </div>
     </div>
     <?php
-    require './components/footer.php';
+    require 'footer.php';
     ?>
 
 </body>
