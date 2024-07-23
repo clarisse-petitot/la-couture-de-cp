@@ -27,7 +27,7 @@
         <div class="flex flex-col gap-12">
             <h3 class="font-black text-6xl text-pink-500">Merci !</h3>
             <p>
-                Votre commande a bien été envoyé
+                Votre commande a bien été envoyée
             </p>
             <a href="index.php" class="text-pink-500 flex gap-2 transform transition-all hover:scale-110 hover:text-pink-600 w-fit-content">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
