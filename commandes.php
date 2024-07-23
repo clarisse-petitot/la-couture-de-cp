@@ -60,7 +60,8 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['description']) && !empty($_POST['description']) && isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['prenom']) && !empty($_POST['prenom']) && isset($_POST['objet']) && !empty($_POST['objet']) && isset($_POST['adresse']) && !empty($_POST['adresse']) && isset($_POST['ville']) && !empty($_POST['ville']) && isset($_POST['pays']) && !empty($_POST['pays'])) {
         require_once 'lib/mail_service.php';
         sendMail($_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['objet'], $_POST['description']);
-        $res = "succes";
+        header("Location: components/valider.php");
+        exit;
     } else {
         $res = "Veuillez remplir tous les champs";
     }

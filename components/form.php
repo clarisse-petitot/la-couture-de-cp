@@ -91,16 +91,10 @@
         <button type="submit" id='submit' name='submit' class="w-full text-base leading-4 font-normal py-3 px-5 text-white bg-pink-500">Envoyer</button>
     </div>
     <?php
-    if ($res == "succes") {
+    if ($res != null) {
     ?>
-        <p class="text-sm font-medium bg-green-100 p-4 mb-5 text-green-400">Commande envoyée avec succès</p>
-        <?php
-    } else {
-        if ($res != null) {
-        ?>
-            <p class="text-sm font-medium bg-red-100 p-4 mb-5 text-red-400"><?= $res ?></p>
+        <p class="text-sm font-medium bg-red-100 p-4 mb-5 text-red-400"><?= $res ?></p>
     <?php
-        }
     }
     ?>
 </form>
